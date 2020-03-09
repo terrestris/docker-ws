@@ -75,7 +75,7 @@
         data-chapter-title="Beispiel-GDI"
         data-filepath="gdi/README.md"
         data-basepath=".."
-        data-revision="Mon Mar 09 2020 18:43:46 GMT+0000 (UTC)"
+        data-revision="Mon Mar 09 2020 18:55:16 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -239,6 +239,7 @@ folgenden Komponenten aufbauen:</p>
 <li>Starten Sie den Service (&#xFC;ber <code>docker-compose</code>) und verbinden Sie sich z.B. &#xFC;ber <code>pgAdmin</code> mit dem Datenbank-Server und der Datenbank <code>fossgis</code>.</li>
 <li>Importieren Sie die Stadtgebiete Freiburgs (siehe <code>stadtteile.sql</code> aus <a href="https://terrestris.github.io/docker-ws/materials.zip" target="_blank">Materialien</a>) in die Datenbank.</li>
 </ul>
+<figure id="fig3.2"><img src="../assets/pgadmin.png" alt="pgAdmin nach Import der Geodaten"><figcaption>pgAdmin nach Import der Geodaten</figcaption></figure>
 <h3 id="geoserverservice">GeoServer-Service</h3>
 <ul>
 <li>Erweitern Sie die <code>docker-compose.yml</code> durch den Service <code>fossgis-geoserver</code> und nutzen Sie dabei das <code>terrestris/geoserver:2.15.2</code> <a href="https://hub.docker.com/r/terrestris/geoserver" target="_blank">Image</a>.<ul>
@@ -258,6 +259,7 @@ folgenden Komponenten aufbauen:</p>
 <li>Legen Sie anschlie&#xDF;end einen neuen Layer <code>STADTTEILE</code> auf Basis des Datenspeichers <code>POSTGIS</code> und der Tabelle <code>stadtteile</code> an.</li>
 <li>Optional: Nutzen Sie den Stil <code>stadtteile.sld</code> der <a href="https://terrestris.github.io/docker-ws/materials.zip" target="_blank">Materialien</a> und weisen Sie diesen dem Layer zu.</li>
 </ul>
+<figure id="fig3.3"><img src="../assets/geoserver-start-screen.png" alt="Startansicht des GeoServers nach Login"><figcaption>Startansicht des GeoServers nach Login</figcaption></figure>
 <h3 id="nginxservice-openlayers-anwendung">nginx-Service (OpenLayers Anwendung)</h3>
 <ul>
 <li>Erstellen Sie auf Ebene der <code>docker-compose.yml</code> ein neues Verzeichnis <code>fossgis-nginx</code> und dort eine neue Datei <code>Dockerfile</code>.</li>
@@ -276,6 +278,7 @@ folgenden Komponenten aufbauen:</p>
 </li>
 <li>Starten Sie anschlie&#xDF;end alle Services neu und &#xF6;ffnen Sie <a href="http://localhost:8000" target="_blank">http://localhost:8000</a> im Browser.</li>
 </ul>
+<figure id="fig3.4"><img src="../assets/ol-client.png" alt="Startansicht des Kartenclients"><figcaption>Startansicht des Kartenclients</figcaption></figure>
 <h3 id="bonus">Bonus</h3>
 <ul>
 <li>Verbinden Sie sich &#xFC;ber das Terminal mit dem laufenden nginx-Container und &#xE4;ndern Sie den Wert des <code>&lt;title&gt;</code> Elements der <code>index.html</code> auf einen Wert Ihrer Wahl. Laden Sie anschlie&#xDF;end die Applikation im Browser neu.</li>

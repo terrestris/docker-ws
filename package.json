@@ -14,7 +14,7 @@
     "doc:pdf": "gitbook pdf src build/docker-ws.pdf",
     "postinstall": "gitbook install src/",
     "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/docker-ws",
-    "archive": "npm run build && cd build && zip -x docker-ws/materials/* -r docker-ws.zip docker-ws docker-ws_*.pdf docker-ws_*.epub"
+    "archive": "npm run build && zip -r materials.zip materials/ && mv materials.zip build/ && cd build && zip -r docker-ws.zip docker-ws docker-ws_*.pdf docker-ws_*.epub"
   },
   "repository": {
     "type": "git",

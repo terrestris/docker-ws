@@ -75,7 +75,7 @@
         data-chapter-title="Beispiel-GDI"
         data-filepath="gdi/README.md"
         data-basepath=".."
-        data-revision="Mon Mar 09 2020 18:12:52 GMT+0000 (UTC)"
+        data-revision="Mon Mar 09 2020 18:19:05 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -237,7 +237,7 @@ folgenden Komponenten aufbauen:</p>
 </ul>
 </li>
 <li>Starten Sie den Service (&#xFC;ber <code>docker-compose</code>) und verbinden Sie sich z.B. &#xFC;ber <code>pgAdmin</code> mit dem Datenbank-Server und der Datenbank <code>fossgis</code>.</li>
-<li>Importieren Sie die Stadtgebiete Freiburgs (siehe <code>stadtteile.sql</code> aus <a href="https://terrestris.github.io/docker-ws/materials.tar.gz" target="_blank">Materialien</a>) in die Datenbank.</li>
+<li>Importieren Sie die Stadtgebiete Freiburgs (siehe <code>stadtteile.sql</code> aus <a href="https://terrestris.github.io/docker-ws/materials.zip" target="_blank">Materialien</a>) in die Datenbank.</li>
 </ul>
 <h3 id="geoserverservice">GeoServer-Service</h3>
 <ul>
@@ -256,12 +256,12 @@ folgenden Komponenten aufbauen:</p>
 <li>Legen Sie einen neuen Arbeitsbereich <code>FOSSGIS</code> an.</li>
 <li>Legen Sie einen neuen Datenspeicher <code>POSTGIS</code> an. W&#xE4;hlen Sie dabei die Verbindungsparameter des <code>fossgis-postgis</code> Services an.</li>
 <li>Legen Sie anschlie&#xDF;end eine neuen Layer <code>STADTTEILE</code> auf Basis des Datenspeichers <code>POSTGIS</code> an.</li>
-<li>Optional: Nutzen Sie den Stil <code>stadtteile.sld</code> der <a href="https://terrestris.github.io/docker-ws/materials.tar.gz" target="_blank">Materialien</a> und weisen Sie diesen dem Layer zu.</li>
+<li>Optional: Nutzen Sie den Stil <code>stadtteile.sld</code> der <a href="https://terrestris.github.io/docker-ws/materials.zip" target="_blank">Materialien</a> und weisen Sie diesen dem Layer zu.</li>
 </ul>
 <h3 id="nginxservice-openlayers-anwendung">nginx-Service (OpenLayers Anwendung)</h3>
 <ul>
 <li>Erstellen Sie auf Ebene der <code>docker-compose.yml</code> ein neues Verzeichnis <code>fossgis-nginx</code> und dort eine neue Datei <code>Dockerfile</code>.</li>
-<li>Legen Sie das <code>client</code>-Verzeichnis sowie die <code>default.conf</code> der <a href="https://terrestris.github.io/docker-ws/materials.tar.gz" target="_blank">Materialien</a> neben der <code>Dockerfile</code> ab.</li>
+<li>Legen Sie das <code>client</code>-Verzeichnis sowie die <code>default.conf</code> der <a href="https://terrestris.github.io/docker-ws/materials.zip" target="_blank">Materialien</a> neben der <code>Dockerfile</code> ab.</li>
 <li>&#xD6;ffnen Sie die <code>Dockerfile</code> und:<ul>
 <li>W&#xE4;hlen Sie als Basisimage die aktuelle Version des offiziellen nginx <a href="https://hub.docker.com/_/nginx" target="_blank">Images</a> aus.</li>
 <li>Kopieren Sie die Konfigurationsdatei <code>nginx.conf</code> in das Image und w&#xE4;hlen Sie als Zielpfad <code>/etc/nginx/conf.d/default.conf</code>.</li>

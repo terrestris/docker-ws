@@ -20,15 +20,16 @@ Der Workshop ist aus einer Reihe von Modulen zusammengestellt. In jedem Modul we
 Die folgenden Module werden in diesem Workshop behandelt:
 
 * [Vorarbeiten und generelle Informationen](environment/README.md)
-Grundlegende Informationen zur Workshop-Umgebung (OSGeoLive, Pfade, URLs, Credentials)
-
-* [Motivation](intro/README.md)
+Grundlegende Informationen zur Workshop-Umgebung (OSGeoLive, Pfade, URLs, Credentials).
 
 * [Grundlagen Docker](basics/docker/README.md)
+Grundlagenwissen zu Docker.
 
 * [Grundlagen docker-compose](basics/docker-compose/README.md)
+Grundlagenwissen zu docker-compose.
 
 * [Beispiel-GDI](gdi/README.md)
+Praktischer Aufbau einer exemplarischen GDI mit Docker und docker-compose.
 
 # Autoren
 

@@ -12,8 +12,8 @@
     "workshopMaterialsDownloadUrl": "https://terrestris.github.io/docker-ws/materials.tar.gz",
     "osGeoLiveVersion": "13.0",
     "authors": [{
-      "name": "Jan Suleimann",
-      "mail": "suleimann@terrestris.de"
+      "name": "Jan Suleiman",
+      "mail": "suleiman@terrestris.de"
     }, {
       "name": "Daniel Koch",
       "mail": "koch@terrestris.de"

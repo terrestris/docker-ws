@@ -19,6 +19,8 @@ folgenden Komponenten aufbauen:
 * Starten Sie den Service (über `docker-compose`) und verbinden Sie sich z.B. über `pgAdmin` mit dem Datenbank-Server und der Datenbank `fossgis`.
 * Importieren Sie die Stadtgebiete Freiburgs (siehe `stadtteile.sql` aus [Materialien]({{ book.workshopMaterialsDownloadUrl }})) in die Datenbank.
 
+![pgAdmin nach Import der Geodaten](../assets/pgadmin.png)
+
 ### GeoServer-Service
 
 * Erweitern Sie die `docker-compose.yml` durch den Service `fossgis-geoserver` und nutzen Sie dabei das `terrestris/geoserver:2.15.2` [Image](https://hub.docker.com/r/terrestris/geoserver).
@@ -34,6 +36,8 @@ folgenden Komponenten aufbauen:
 * Legen Sie anschließend einen neuen Layer `STADTTEILE` auf Basis des Datenspeichers `POSTGIS` und der Tabelle `stadtteile` an.
 * Optional: Nutzen Sie den Stil `stadtteile.sld` der [Materialien]({{ book.workshopMaterialsDownloadUrl }}) und weisen Sie diesen dem Layer zu.
 
+![Startansicht des GeoServers nach Login](../assets/geoserver-start-screen.png)
+
 ### nginx-Service (OpenLayers Anwendung)
 
 * Erstellen Sie auf Ebene der `docker-compose.yml` ein neues Verzeichnis `fossgis-nginx` und dort eine neue Datei `Dockerfile`.
@@ -47,6 +51,8 @@ folgenden Komponenten aufbauen:
   * Veröffentlichen Sie den Service-Port 80 auf dem 8000er Port des Hosts und wählen Sie als Build-Context die zuvor erstellte `Dockerfile`.
   * Achten Sie bei der Startreihenfolge darauf, dass der `nginx` Service zuletzt gestartet wird.
 * Starten Sie anschließend alle Services neu und öffnen Sie [http://localhost:8000](http://localhost:8000) im Browser.
+
+![Startansicht des Kartenclients](../assets/ol-client.png)
 
 ### Bonus
 

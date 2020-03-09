@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Vorarbeiten und generelle Informationen | Orchestrierung einer GDI über Docker</title>
+        <title>docker-compose | Orchestrierung einer GDI über Docker</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.6.9">
@@ -15,25 +15,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
-        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
         
-    <link rel="stylesheet" href="../gitbook/style.css">
+    <link rel="stylesheet" href="../../gitbook/style.css">
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-advanced-emoji/emoji-website.css">
-        
-    
-        
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-advanced-emoji/emoji-website.css">
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-expandable-chapters/expandable-chapters.css">
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-richquotes/plugin.css">
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-image-captions/image-captions.css">
+        
+    
+        
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-richquotes/plugin.css">
         
     
         
@@ -41,19 +41,19 @@
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-sectionx/sectionx.css">
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-sectionx/sectionx.css">
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-highlight/website.css">
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-highlight/website.css">
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-search/search.css">
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-search/search.css">
         
     
         
-        <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
+        <link rel="stylesheet" href="../../gitbook/plugins/gitbook-plugin-fontsettings/website.css">
         
     
     
@@ -61,10 +61,8 @@
         
     
     
-    <link rel="next" href="../basics/index.html" />
     
-    
-    <link rel="prev" href="../index.html" />
+    <link rel="prev" href="../../basics/docker/index.html" />
     
 
         
@@ -73,10 +71,10 @@
         
         
     <div class="book"
-        data-level="1"
-        data-chapter-title="Vorarbeiten und generelle Informationen"
-        data-filepath="environment/README.md"
-        data-basepath=".."
+        data-level="2.2"
+        data-chapter-title="docker-compose"
+        data-filepath="basics/docker-compose/README.md"
+        data-basepath="../.."
         data-revision="Mon Mar 09 2020 12:33:14 GMT+0000 (UTC)"
         data-innerlanguage="">
     
@@ -96,7 +94,7 @@
         <li class="chapter " data-level="0" data-path="index.html">
             
                 
-                    <a href="../index.html">
+                    <a href="../../index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -106,10 +104,10 @@
             
         </li>
     
-        <li class="chapter active" data-level="1" data-path="environment/index.html">
+        <li class="chapter " data-level="1" data-path="environment/index.html">
             
                 
-                    <a href="../environment/index.html">
+                    <a href="../../environment/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -124,7 +122,7 @@
         <li class="chapter " data-level="2" data-path="basics/index.html">
             
                 
-                    <a href="../basics/index.html">
+                    <a href="../../basics/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -140,7 +138,7 @@
         <li class="chapter " data-level="2.1" data-path="basics/docker/index.html">
             
                 
-                    <a href="../basics/docker/index.html">
+                    <a href="../../basics/docker/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -152,10 +150,10 @@
             
         </li>
     
-        <li class="chapter " data-level="2.2" data-path="basics/docker-compose/index.html">
+        <li class="chapter active" data-level="2.2" data-path="basics/docker-compose/index.html">
             
                 
-                    <a href="../basics/docker-compose/index.html">
+                    <a href="../../basics/docker-compose/index.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -270,7 +268,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../" >Orchestrierung einer GDI über Docker</a>
+        <a href="../../" >Orchestrierung einer GDI über Docker</a>
     </h1>
 </div>
 
@@ -280,37 +278,45 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="vorarbeiten-und-generelle-informationen">Vorarbeiten und generelle Informationen</h1>
-<p>Bevor wir mit dem Workshop starten k&#xF6;nnen, f&#xFC;hren Sie bitte die folgenden Schritte
-aus:</p>
+                        <h1 id="dockercompose">docker-compose</h1>
+<p><code>docker-compose</code> bietet die M&#xF6;glichkeit, verschiedene Dienste (Container) in einer YAML-Datei zu definieren (docker-compose.yml).
+Dies bietet den Vorteil, mehrere Container auf eine &#xFC;bersichtliche Art und Weise konfigurieren und orchestrieren zu k&#xF6;nnen.</p>
+<p>Die Dokumentation zu <code>docker-compose</code> findet sich auf <a href="https://docs.docker.com/compose/" target="_blank">https://docs.docker.com/compose/</a>.</p>
+<p><code>docker-compose</code> wird &#xFC;berlicherweise genutzt um Entwicklungsumgebungen aufzusetzen, automatisiertes Testen zu erm&#xF6;glichen
+oder eben auch um GDIs mit geringem Aufwand zusammenzustellen.</p>
+<p>In einer <code>docker-compose.yml</code> k&#xF6;nnen k&#xF6;nnen sowohl lokale Dockerfiles, als auch ver&#xF6;ffentlichte Images direkt eingebunden werden.</p>
+<p>Dies sieht beispielsweise folgenderma&#xDF;en aus:</p>
+<h1 id="todo-beispiel-vorher-lokal-erzeugtes-dockerfile-und-fertiges-image-erstellen">TODO Beispiel vorher lokal erzeugtes Dockerfile und fertiges image erstellen</h1>
+<pre><code class="lang-yaml">version: &apos;3&apos;,
+services:
+  geoserver:
+    build:
+      context: geoserver
+</code></pre>
+<h2 id="wichtige-konfigurations-parameter">Wichtige Konfigurations Parameter</h2>
 <ul>
-<li>Rechner mit OSGeoLive-Medium hochfahren</li>
-<li>Sprache ausw&#xE4;hlen (Deutsch f&#xFC;r korrekte Tastaturbelegung)</li>
-<li><em>Lubuntu ohne Installation ausprobieren</em> ausw&#xE4;hlen</li>
-<li>Benutzer: user; Passwort: user (wird vermutlich nicht ben&#xF6;tigt)</li>
+<li><strong>image</strong> Image, auf Basis dessen der Container gestartet werden soll</li>
+<li><strong>ports</strong> Ports, die von au&#xDF;erhalb der Container zugreifbar sein sollen. Syntax: <code>hostMachinePort:containerPort</code>
+(z.B. <code>8080:80</code> stellt Port 80 des Containers auf Port 8080 der Host Maschine frei)</li>
+<li><strong>environment</strong> Umgebungsvariablen die dem Container mitgegeben werden sollen (bspw. Nutzername und Passwort)</li>
+<li><strong>volumes</strong> Pfade, die von der Host Maschine in den Container eingehangen werden sollen</li>
 </ul>
-<figure id="fig1.1"><img src="../assets/startview.png" alt="Die Startansicht der OSGeo Live 13.0 auf Ihrem Rechner."><figcaption>Die Startansicht der OSGeo Live 13.0 auf Ihrem Rechner.</figcaption></figure>
-<h2 id="installation-dockerdockercompose">Installation docker/docker-compose</h2>
-<p>Bitte &#xFC;berpr&#xFC;fen Sie, ob <code>docker</code> und <code>docker-compose</code> korrekt installiert sind,
-indem Sie das Terminal &#xF6;ffnen und die Eingabe von</p>
-<pre><code>docker
-</code></pre><p>die folgende Ausgabe (Auszug) erzeugt:</p>
-<pre><code>Usage:    docker [OPTIONS] COMMAND
-
-A self-sufficient runtime for containers
-
-(&#x2026;)
-</code></pre><p>Pr&#xFC;fen Sie ebenfalls, ob die Eingabe von <code>docker-compose</code> die folgende Ausgabe
-(Auszug) erzeugt:</p>
-<pre><code>Define and run multi-container applications with Docker.
-
-(&#x2026;)
-</code></pre><p>Schl&#xE4;gt einer der obigen Befehle fehl, f&#xFC;hren Sie bitte die folgenden Befehle aus:</p>
-<pre><code>apt update
-apt install docker.io docker-compose
-usermod -aG docker $USER
-newgrp docker
-</code></pre><p>Im <a href="../basics/index.html">folgenden Abschnitt</a> werden wir mit Docker-Basiswissen fortfahren.</p>
+<h2 id="wichtige-befehle">Wichtige Befehle</h2>
+<ul>
+<li><strong><code>docker-compose help</code></strong><ul>
+<li><strong><code>docker-compose help [command]</code></strong>, z.B. <strong><code>docker-compose help build</code></strong></li>
+</ul>
+</li>
+<li><strong><code>docker-compose build</code></strong> zur Erzeugung der Services, die in der Datei <code>docker-compose.yaml</code> definitiert sind</li>
+<li><strong><code>docker-compose up</code></strong> zum Starten der Services/Container<ul>
+<li>Mit dem Parameter <strong><code>-f</code></strong> lassen sich auch Dateien angeben, die nicht <code>docker-compose.yaml</code> hei&#xDF;en (z.B. unterschiedliche Konfiguration f&#xFC;r verschiedene
+Umgebungen)</li>
+</ul>
+</li>
+<li><strong><code>docker-compose down</code></strong> zum Stoppen der Services/Container</li>
+<li><strong><code>docker-compose logs [service&#x2026;]</code></strong> zum Einsehen der Logs eines (oder mehrerer) Services/Container</li>
+<li><strong><code>docker-compose restart [service&#x2026;]</code></strong> zum Neustarten eines (oder mehrerer) Services/Container</li>
+</ul>
 
                     
                     </section>
@@ -321,23 +327,21 @@ newgrp docker
         </div>
 
         
-        <a href="../index.html" class="navigation navigation-prev " aria-label="Previous page: Einleitung"><i class="fa fa-angle-left"></i></a>
+        <a href="../../basics/docker/index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Docker"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../basics/index.html" class="navigation navigation-next " aria-label="Next page: Basiswissen"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
 
         
-<script src="../gitbook/app.js"></script>
+<script src="../../gitbook/app.js"></script>
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-edit-link/plugin.js"></script>
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
     
 
     
@@ -345,23 +349,23 @@ newgrp docker
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-sectionx/sectionx.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-sectionx/sectionx.js"></script>
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-search/lunr.min.js"></script>
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-search/search.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-search/search.js"></script>
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-sharing/buttons.js"></script>
     
 
     
-    <script src="../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
+    <script src="../../gitbook/plugins/gitbook-plugin-fontsettings/buttons.js"></script>
     
 
 <script>

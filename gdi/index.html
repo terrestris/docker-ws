@@ -71,11 +71,11 @@
         
         
     <div class="book"
-        data-level="4"
+        data-level="3"
         data-chapter-title="Beispiel-GDI"
         data-filepath="gdi/README.md"
         data-basepath=".."
-        data-revision="Mon Mar 09 2020 13:06:44 GMT+0000 (UTC)"
+        data-revision="Mon Mar 09 2020 16:11:35 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -119,29 +119,14 @@
             
         </li>
     
-        <li class="chapter " data-level="2" data-path="intro/index.html">
-            
-                
-                    <a href="../intro/index.html">
-                
-                        <i class="fa fa-check"></i>
-                        
-                            <b>2.</b>
-                        
-                        Motivation
-                    </a>
-            
-            
-        </li>
-    
-        <li class="chapter " data-level="3" data-path="basics/index.html">
+        <li class="chapter " data-level="2" data-path="basics/index.html">
             
                 
                     <a href="../basics/index.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>3.</b>
+                            <b>2.</b>
                         
                         Basiswissen
                     </a>
@@ -150,14 +135,14 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1" data-path="basics/docker/index.html">
+        <li class="chapter " data-level="2.1" data-path="basics/docker/index.html">
             
                 
                     <a href="../basics/docker/index.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>3.1.</b>
+                            <b>2.1.</b>
                         
                         Docker
                     </a>
@@ -165,14 +150,14 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="basics/docker-compose/index.html">
+        <li class="chapter " data-level="2.2" data-path="basics/docker-compose/index.html">
             
                 
                     <a href="../basics/docker-compose/index.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>3.2.</b>
+                            <b>2.2.</b>
                         
                         docker-compose
                     </a>
@@ -185,14 +170,14 @@
             
         </li>
     
-        <li class="chapter active" data-level="4" data-path="gdi/index.html">
+        <li class="chapter active" data-level="3" data-path="gdi/index.html">
             
                 
                     <a href="../gdi/index.html">
                 
                         <i class="fa fa-check"></i>
                         
-                            <b>4.</b>
+                            <b>3.</b>
                         
                         Beispiel-GDI
                     </a>
@@ -233,47 +218,67 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="todos">TODOS</h1>
+                        <h1 id="beispielgdi">Beispiel-GDI</h1>
+<p>In diesem Kapitel werden wir eine exemplarische GDI bestehend aus den
+folgenden Komponenten aufbauen:</p>
 <ul>
-<li>Architekturskizze der Beispiel-App</li>
-<li><p>Aufgaben:</p>
+<li>PostGIS Datenbank zur Persistierung der Geodaten.</li>
+<li>GeoServer zur Ver&#xF6;ffentlichung der Geodaten &#xFC;ber OGC-Dienste.</li>
+<li>OpenLayers Applikation zur Anzeige der Geodaten &#xFC;ber den Browser.</li>
+</ul>
+<figure id="fig3.1"><img src="../../assets/architecture.svg" alt="Zielarchitektur der GDI"><figcaption>Zielarchitektur der GDI</figcaption></figure>
+<h2 id="aufgaben">Aufgaben</h2>
+<h3 id="postgisservice">PostGIS-Service</h3>
 <ul>
-<li>PostGIS:<ul>
-<li>docker-compose f&#xFC;r Datenbank auf Basis des <code>mdillon/postgis</code> <a href="https://hub.docker.com/r/mdillon/postgis/" target="_blank">Images</a> in Version <code>11-alpine</code> erstellen<ul>
-<li>Achten Sie beim Anlegen des Services auf das Weiterleiten des Ports (5432) auf den Host und legen Sie einen User mit den folgenden Zugangsdaten an: <code>fossgis:fossgis</code></li>
+<li>Legen Sie eine neue Datei namens <code>docker-compose.yml</code> in einem beliebigen Verzeichnis an.</li>
+<li>F&#xFC;gen Sie dieser Datei einen neuen Service <code>fossgis-postgis</code> basierend auf dem <code>mdillon/postgis</code> <a href="https://hub.docker.com/r/mdillon/postgis/" target="_blank">Image</a> in Version <code>11-alpine</code> hinzu.<ul>
+<li>Achten Sie beim Anlegen des Services auf das korrekte Weiterleiten des internen Ports (5432) auf den Host (5433) und legen Sie einen User mit den Zugangsdaten <code>fossgis:fossgis</code> an.</li>
 <li>Mounten Sie das Datenverzeichnis der Datenbank (<code>/var/lib/postgresql/data</code>) auf das Hostsystem.</li>
 </ul>
 </li>
-<li>Starten Sie den Service (&#xFC;ber docker-compose) und verbinden Sie sich z.B. &#xFC;ber pgAdmin mit der Datenbank.</li>
-<li>Importieren Sie die Stadtgebiete Freiburgs (siehe <a href="materials/data/stadtteile.sql">hier</a>) in die Datenbank.</li>
+<li>Starten Sie den Service (&#xFC;ber <code>docker-compose</code>) und verbinden Sie sich z.B. &#xFC;ber <code>pgAdmin</code> mit dem Datenbank-Server und der Datenbank <code>fossgis</code>.</li>
+<li>Importieren Sie die Stadtgebiete Freiburgs (siehe <code>stadtteile.sql</code> aus <a href="https://terrestris.github.io/docker-ws/materials.tar.gz" target="_blank">Materialien</a>) in die Datenbank.</li>
 </ul>
-</li>
-<li><p>GeoServer</p>
+<h3 id="geoserverservice">GeoServer-Service</h3>
 <ul>
-<li>docker-compose erweitern durch GeoServer Image <code>terrestris/geoserver:2.15.2</code> <a href="https://hub.docker.com/r/terrestris/geoserver" target="_blank">Image</a></li>
-<li><p>Auf Ports (8080), Volume (<code>/opt/geoserver_data</code>) achten und <code>depends_on</code></p>
-</li>
-<li><p>OL Client</p>
-</li>
-</ul>
-</li>
-<li><p>Dockerfile auf Basis von nginx erstellen, einfache HTML Seite ver&#xF6;ffentlichen</p>
-</li>
-<li><p>Dockerfile f&#xFC;r Frontend-App erstellen</p>
-</li>
-<li><p>Daten importieren (z.B. &#xFC;ber pgadmin oder qgis)</p>
-</li>
-<li>Layer erstellen<ul>
-<li>Arbeitsbereich FOSSGIS erstellen</li>
-<li>Datenspeicher POSTGIS erstellen</li>
-<li>Layer STADTTEILE anlegen</li>
-</ul>
+<li>Erweitern Sie die <code>docker-compose.yml</code> durch den Service <code>fossgis-geoserver</code> und nutzen Sie dabei das <code>terrestris/geoserver:2.15.2</code> <a href="https://hub.docker.com/r/terrestris/geoserver" target="_blank">Image</a>.<ul>
+<li>Achten Sie auch hier auf das korrekte Mappen des internen Ports (8080) auf den Host (8080).</li>
+<li>Mounten Sie das Datenverzeichnis des GeoServers (<code>/opt/geoserver_data</code>) auf das Hostsystem.</li>
+<li>Bestimmen Sie zus&#xE4;tzlich die Startreihenfolge der Services mittels <code>depends_on</code>:<ol>
+<li><code>fossgis-postgis</code></li>
+<li><code>fossgis-geoserver</code></li>
+</ol>
 </li>
 </ul>
 </li>
+<li>Stoppen Sie, falls noch nicht geschehen den bisherigen Service und starten Sie das compose Netzwerk neu.</li>
+<li>&#xD6;ffnen Sie den GeoServer &#xFC;ber die Adresse <a href="http://localhost:8080/geoserver" target="_blank">http://localhost:8080/geoserver</a> im Browser. Nutzen Sie als Anmeldedaten <code>admin:geoserver</code>.</li>
+<li>Legen Sie einen neuen Arbeitsbereich <code>FOSSGIS</code> an.</li>
+<li>Legen Sie einen neuen Datenspeicher <code>POSTGIS</code> an. W&#xE4;hlen Sie dabei die Verbindungsparameter des <code>fossgis-postgis</code> Services an.</li>
+<li>Legen Sie anschlie&#xDF;end eine neuen Layer <code>STADTTEILE</code> auf Basis des Datenspeichers <code>POSTGIS</code> an.</li>
+<li>Optional: Nutzen Sie den Stil <code>stadtteile.sld</code> der <a href="https://terrestris.github.io/docker-ws/materials.tar.gz" target="_blank">Materialien</a> und weisen Sie diesen dem Layer zu.</li>
 </ul>
+<h3 id="nginxservice-openlayers-anwendung">nginx-Service (OpenLayers Anwendung)</h3>
 <ul>
-<li>In nginx Container mit docker exec und <code>&lt;title&gt;</code> der <code>index.html</code> anpassen, anschlie&#xDF;end Container recreate</li>
+<li>Erstellen Sie auf Ebene der <code>docker-compose.yml</code> ein neues Verzeichnis <code>fossgis-nginx</code> und dort eine neue Datei <code>Dockerfile</code>.</li>
+<li>Legen Sie das <code>client</code>-Verzeichnis sowie die <code>default.conf</code> der <a href="https://terrestris.github.io/docker-ws/materials.tar.gz" target="_blank">Materialien</a> neben der <code>Dockerfile</code> ab.</li>
+<li>&#xD6;ffnen Sie die <code>Dockerfile</code> und:<ul>
+<li>W&#xE4;hlen Sie als Basisimage die aktuelle Version des offiziellen nginx <a href="https://hub.docker.com/_/nginx" target="_blank">Images</a> aus.</li>
+<li>Kopieren Sie die Konfigurationsdatei <code>nginx.conf</code> in das Image und w&#xE4;hlen Sie als Zielpfad <code>/etc/nginx/conf.d/default.conf</code>.</li>
+<li>Kopieren Sie den Inhalt des entpackten Client-Archivs <code>client</code> in das Image und w&#xE4;hlen Sie als Zielpfad <code>/etc/nginx/html</code>.</li>
+<li>Geben Sie den Port (80) des nginx-Prozesses in der <code>Dockerfile</code> an.</li>
+</ul>
+</li>
+<li>F&#xFC;gen Sie der <code>docker-compose.yml</code> einen neuen Service <code>fossgis-nginx</code> hinzu.<ul>
+<li>Ver&#xF6;ffentlichen Sie den Port 80 und w&#xE4;hlen Sie als Build-Context die zuvor erstellte <code>Dockerfile</code>.</li>
+</ul>
+</li>
+<li>Starten Sie anschlie&#xDF;end alle Services neu und &#xF6;ffnen Sie <a href="http://localhost" target="_blank">http://localhost</a> im Browser.</li>
+</ul>
+<h3 id="bonus">Bonus</h3>
+<ul>
+<li>Verbinden Sie sich &#xFC;ber das Terminal mit dem laufenden nginx-Container und &#xE4;ndern Sie den Wert des <code>&lt;title&gt;</code> Elements der <code>index.html</code> auf einen Wert Ihrer Wahl. Laden Sie anschlie&#xDF;end die Applikation im Browser neu.</li>
+<li>Was passiert, wenn der Service neu gestartet wird? Was passiert, wenn der Container neu gebaut wird?</li>
 </ul>
 
                     

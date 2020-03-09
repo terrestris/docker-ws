@@ -1,10 +1,43 @@
-# Wichtige Konzepte:
+# docker-compose
 
-THEORIE! Keine Aufgabe
+`docker-compose` bietet die Möglichkeit, verschiedene Dienste (Container) in einer YAML-Datei zu definieren (docker-compose.yml).
+Dies bietet den Vorteil, mehrere Container auf eine übersichtliche Art und Weise konfigurieren und orchestrieren zu können.
 
-* Image
-* Ports
-* Environment
-* Volume
+Die Dokumentation zu `docker-compose` findet sich auf [https://docs.docker.com/compose/](https://docs.docker.com/compose/).
 
-* Wichte docker-compose CLI commands
+`docker-compose` wird überlicherweise genutzt um Entwicklungsumgebungen aufzusetzen, automatisiertes Testen zu ermöglichen
+oder eben auch um GDIs mit geringem Aufwand zusammenzustellen.
+
+In einer `docker-compose.yml` können können sowohl lokale Dockerfiles, als auch veröffentlichte Images direkt eingebunden werden.
+
+Dies sieht beispielsweise folgendermaßen aus:
+
+# TODO Beispiel vorher lokal erzeugtes Dockerfile und fertiges image erstellen
+
+```yaml
+version: '3',
+services:
+  geoserver:
+    build:
+      context: geoserver
+```
+
+## Wichtige Konfigurations Parameter
+
+* **image** Image, auf Basis dessen der Container gestartet werden soll
+* **ports** Ports, die von außerhalb der Container zugreifbar sein sollen. Syntax: `hostMachinePort:containerPort`
+(z.B. `8080:80` stellt Port 80 des Containers auf Port 8080 der Host Maschine frei)
+* **environment** Umgebungsvariablen die dem Container mitgegeben werden sollen (bspw. Nutzername und Passwort)
+* **volumes** Pfade, die von der Host Maschine in den Container eingehangen werden sollen
+
+## Wichtige Befehle
+
+* **`docker-compose help`**
+  * **`docker-compose help [command]`**, z.B. **`docker-compose help build`**
+* **`docker-compose build`** zur Erzeugung der Services, die in der Datei `docker-compose.yaml` definitiert sind
+* **`docker-compose up`** zum Starten der Services/Container
+  * Mit dem Parameter **`-f`** lassen sich auch Dateien angeben, die nicht `docker-compose.yaml` heißen (z.B. unterschiedliche Konfiguration für verschiedene
+Umgebungen)
+* **`docker-compose down`** zum Stoppen der Services/Container
+* **`docker-compose logs [service…]`** zum Einsehen der Logs eines (oder mehrerer) Services/Container
+* **`docker-compose restart [service…]`** zum Neustarten eines (oder mehrerer) Services/Container

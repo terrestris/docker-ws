@@ -1,7 +1,9 @@
 # Summary
 
 * [Vorarbeiten und generelle Informationen](environment/README.md)
-* [Basiswissen GeoServer](basics/README.md)
+* [Basiswissen](basics/README.md)
+  * [Docker](basics/docker/README.md)
+  * [docker-compose](basics/docker-compose/README.md)
 * [Administrationsoberfläche](ui/README.md)
   * [Serverstatus](ui/server/README.md)
   * [Daten](ui/data/README.md)

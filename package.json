@@ -1,0 +1,36 @@
+{
+  "name": "docker-ws",
+  "private": true,
+  "version": "0.0.1",
+  "description": "The materials for the docker workshop",
+  "scripts": {
+    "start": "mkdir -p src/_book && npm run doc:serve",
+    "test": "npm run build",
+    "clean": "rm -rf src/_book build",
+    "doc:help": "gitbook help",
+    "doc:serve": "gitbook serve src",
+    "doc:build": "gitbook build src build/docker-ws",
+    "doc:epub": "gitbook epub src build/docker-ws.epub",
+    "doc:pdf": "gitbook pdf src build/docker-ws.pdf",
+    "postinstall": "gitbook install src/",
+    "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/docker-ws",
+    "archive": "npm run build && cd build && zip -x docker-ws/materials/* -r docker-ws.zip docker-ws docker-ws_*.pdf docker-ws_*.epub"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrestris/docker-ws.git"
+  },
+  "keywords": [
+    "workshop",
+    "docker"
+  ],
+  "author": "terrestris GmbH & Co.KG",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/terrestris/docker-ws/issues"
+  },
+  "homepage": "https://github.com/terrestris/docker-ws#readme",
+  "dependencies": {
+    "gitbook-cli": "2.3.2"
+  }
+}

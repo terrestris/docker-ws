@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>FOSSGIS 2020</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <style>
+      html, body, .map {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .drawer {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        overflow-x: hidden;
+        padding-top: 60px;
+        transition: 0.5s;
+      }
+      .drawer a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      .drawer .close-btn {
+        position: absolute;
+        top: 0;
+        right: 5px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      table.featureInfo {
+        width: 50%;
+        margin: 0 auto !important;
+      }
+      #info {
+        overflow: auto;
+      }
+      #logo {
+        position: fixed;
+        right: 25px;
+        top: 25px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <div id="info-drawer" class="drawer">
+      <a href="javascript:void(0)" class="close-btn">&times;</a>
+      <div id="info">&nbsp;</div>
+    </div>
+    <img id="logo" src="https://fossgis-konferenz.de/2020/img/fossgis20-logo.png">
+    <script src="index.js"></script>
+  </body>
+</html>

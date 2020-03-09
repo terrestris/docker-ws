@@ -1,0 +1,29 @@
+version: '3'
+services:
+  fossgis-nginx:
+    build:
+      context: fossgis-nginx/
+    ports:
+      - 80:80
+    depends_on:
+      - fossgis-postgis
+      - fossgis-geoserver
+  fossgis-geoserver:
+    image: terrestris/geoserver:2.15.2
+    ports:
+      - 8080:8080
+    volumes:
+      - ./fossgis-geoserver/geoserver_data:/opt/geoserver_data/:Z
+    environment:
+      - EXTRA_JAVA_OPTS=-Xms1g -Xmx2g
+    depends_on:
+      - fossgis-postgis
+  fossgis-postgis:
+    image: mdillon/postgis:11-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: fossgis
+      POSTGRES_PASSWORD: fossgis
+    volumes:
+      - ./fossgis-postgis/postgresql_data:/var/lib/postgresql/data:Z

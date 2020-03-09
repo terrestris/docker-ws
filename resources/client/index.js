@@ -15,7 +15,7 @@ const osmLayer = new TileLayer({
 const stadtteileLayer = new ImageLayer({
   name: 'Stadtteile',
   source: new ImageWMS({
-    url: 'http://localhost/geoserver/wms',
+    url: '/geoserver/wms',
     params: {
       'LAYERS': 'FOSSGIS:STADTTEILE'
     },

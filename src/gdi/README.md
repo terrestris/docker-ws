@@ -31,7 +31,7 @@ folgenden Komponenten aufbauen:
 * Öffnen Sie den GeoServer über die Adresse [http://localhost:8080/geoserver](http://localhost:8080/geoserver) im Browser. Nutzen Sie als Anmeldedaten `admin:geoserver`.
 * Legen Sie einen neuen Arbeitsbereich `FOSSGIS` an.
 * Legen Sie einen neuen Datenspeicher `POSTGIS` an. Wählen Sie dabei die Verbindungsparameter des `fossgis-postgis` Services an.
-* Legen Sie anschließend eine neuen Layer `STADTTEILE` auf Basis des Datenspeichers `POSTGIS` an.
+* Legen Sie anschließend einen neuen Layer `STADTTEILE` auf Basis des Datenspeichers `POSTGIS` und der Tabelle `stadtteile` an.
 * Optional: Nutzen Sie den Stil `stadtteile.sld` der [Materialien]({{ book.workshopMaterialsDownloadUrl }}) und weisen Sie diesen dem Layer zu.
 
 ### nginx-Service (OpenLayers Anwendung)
@@ -44,8 +44,9 @@ folgenden Komponenten aufbauen:
   * Kopieren Sie den Inhalt des entpackten Client-Archivs `client` in das Image und wählen Sie als Zielpfad `/etc/nginx/html`.
   * Geben Sie den Port (80) des nginx-Prozesses in der `Dockerfile` an.
 * Fügen Sie der `docker-compose.yml` einen neuen Service `fossgis-nginx` hinzu.
-  * Veröffentlichen Sie den Port 80 und wählen Sie als Build-Context die zuvor erstellte `Dockerfile`.
-* Starten Sie anschließend alle Services neu und öffnen Sie [http://localhost](http://localhost) im Browser.
+  * Veröffentlichen Sie den Service-Port 80 auf dem 8000er Port des Hosts und wählen Sie als Build-Context die zuvor erstellte `Dockerfile`.
+  * Achten Sie bei der Startreihenfolge darauf, dass der `nginx` Service zuletzt gestartet wird.
+* Starten Sie anschließend alle Services neu und öffnen Sie [http://localhost:8000](http://localhost:8000) im Browser.
 
 ### Bonus
 

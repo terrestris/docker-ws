@@ -75,7 +75,7 @@
         data-chapter-title="Beispiel-GDI"
         data-filepath="gdi/README.md"
         data-basepath=".."
-        data-revision="Mon Mar 09 2020 18:19:05 GMT+0000 (UTC)"
+        data-revision="Mon Mar 09 2020 18:34:51 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -255,7 +255,7 @@ folgenden Komponenten aufbauen:</p>
 <li>&#xD6;ffnen Sie den GeoServer &#xFC;ber die Adresse <a href="http://localhost:8080/geoserver" target="_blank">http://localhost:8080/geoserver</a> im Browser. Nutzen Sie als Anmeldedaten <code>admin:geoserver</code>.</li>
 <li>Legen Sie einen neuen Arbeitsbereich <code>FOSSGIS</code> an.</li>
 <li>Legen Sie einen neuen Datenspeicher <code>POSTGIS</code> an. W&#xE4;hlen Sie dabei die Verbindungsparameter des <code>fossgis-postgis</code> Services an.</li>
-<li>Legen Sie anschlie&#xDF;end eine neuen Layer <code>STADTTEILE</code> auf Basis des Datenspeichers <code>POSTGIS</code> an.</li>
+<li>Legen Sie anschlie&#xDF;end einen neuen Layer <code>STADTTEILE</code> auf Basis des Datenspeichers <code>POSTGIS</code> und der Tabelle <code>stadtteile</code> an.</li>
 <li>Optional: Nutzen Sie den Stil <code>stadtteile.sld</code> der <a href="https://terrestris.github.io/docker-ws/materials.zip" target="_blank">Materialien</a> und weisen Sie diesen dem Layer zu.</li>
 </ul>
 <h3 id="nginxservice-openlayers-anwendung">nginx-Service (OpenLayers Anwendung)</h3>
@@ -270,10 +270,11 @@ folgenden Komponenten aufbauen:</p>
 </ul>
 </li>
 <li>F&#xFC;gen Sie der <code>docker-compose.yml</code> einen neuen Service <code>fossgis-nginx</code> hinzu.<ul>
-<li>Ver&#xF6;ffentlichen Sie den Port 80 und w&#xE4;hlen Sie als Build-Context die zuvor erstellte <code>Dockerfile</code>.</li>
+<li>Ver&#xF6;ffentlichen Sie den Service-Port 80 auf dem 8000er Port des Hosts und w&#xE4;hlen Sie als Build-Context die zuvor erstellte <code>Dockerfile</code>.</li>
+<li>Achten Sie bei der Startreihenfolge darauf, dass der <code>nginx</code> Service zuletzt gestartet wird.</li>
 </ul>
 </li>
-<li>Starten Sie anschlie&#xDF;end alle Services neu und &#xF6;ffnen Sie <a href="http://localhost" target="_blank">http://localhost</a> im Browser.</li>
+<li>Starten Sie anschlie&#xDF;end alle Services neu und &#xF6;ffnen Sie <a href="http://localhost:8000" target="_blank">http://localhost:8000</a> im Browser.</li>
 </ul>
 <h3 id="bonus">Bonus</h3>
 <ul>

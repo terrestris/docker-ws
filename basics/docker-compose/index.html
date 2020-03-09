@@ -75,7 +75,7 @@
         data-chapter-title="docker-compose"
         data-filepath="basics/docker-compose/README.md"
         data-basepath="../.."
-        data-revision="Mon Mar 09 2020 12:33:14 GMT+0000 (UTC)"
+        data-revision="Mon Mar 09 2020 12:38:05 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -281,10 +281,15 @@
                         <h1 id="dockercompose">docker-compose</h1>
 <p><code>docker-compose</code> bietet die M&#xF6;glichkeit, verschiedene Dienste (Container) in einer YAML-Datei zu definieren (docker-compose.yml).
 Dies bietet den Vorteil, mehrere Container auf eine &#xFC;bersichtliche Art und Weise konfigurieren und orchestrieren zu k&#xF6;nnen.</p>
+<blockquote class="clearfix alert alert-info"><strong class="fa fa-2x fa-info"></strong>
+<p></p>
 <p>Die Dokumentation zu <code>docker-compose</code> findet sich auf <a href="https://docs.docker.com/compose/" target="_blank">https://docs.docker.com/compose/</a>.</p>
+</blockquote>
 <p><code>docker-compose</code> wird &#xFC;berlicherweise genutzt um Entwicklungsumgebungen aufzusetzen, automatisiertes Testen zu erm&#xF6;glichen
-oder eben auch um GDIs mit geringem Aufwand zusammenzustellen.</p>
-<p>In einer <code>docker-compose.yml</code> k&#xF6;nnen k&#xF6;nnen sowohl lokale Dockerfiles, als auch ver&#xF6;ffentlichte Images direkt eingebunden werden.</p>
+oder eben auch um GDIs mit geringem Aufwand zusammenzustellen. Ein gro&#xDF;er Vorteil von <code>docker-compose</code> ist das gleichzeitige
+starten mehrerer Container mit nur einem Befehl. Zus&#xE4;tzlich k&#xF6;nnen wir auch Abh&#xE4;ngigkeiten zwischen den verschiedenen Containern
+definieren. Dazu sp&#xE4;ter mehr.</p>
+<p>In einer <code>docker-compose.yml</code> k&#xF6;nnen sowohl lokale Dockerfiles, als auch ver&#xF6;ffentlichte Images direkt eingebunden werden.</p>
 <p>Dies sieht beispielsweise folgenderma&#xDF;en aus:</p>
 <h1 id="todo-beispiel-vorher-lokal-erzeugtes-dockerfile-und-fertiges-image-erstellen">TODO Beispiel vorher lokal erzeugtes Dockerfile und fertiges image erstellen</h1>
 <pre><code class="lang-yaml">version: &apos;3&apos;,

@@ -77,7 +77,7 @@
         data-chapter-title="docker-compose"
         data-filepath="basics/docker-compose/README.md"
         data-basepath="../.."
-        data-revision="Mon Mar 09 2020 16:11:35 GMT+0000 (UTC)"
+        data-revision="Mon Mar 09 2020 16:30:36 GMT+0000 (UTC)"
         data-innerlanguage="">
     
 
@@ -233,20 +233,37 @@ starten mehrerer Container mit nur einem Befehl. Zus&#xE4;tzlich k&#xF6;nnen wir
 definieren. Dazu sp&#xE4;ter mehr.</p>
 <p>In einer <code>docker-compose.yml</code> k&#xF6;nnen sowohl lokale Dockerfiles, als auch ver&#xF6;ffentlichte Images direkt eingebunden werden.</p>
 <p>Dies sieht beispielsweise folgenderma&#xDF;en aus:</p>
-<h1 id="todo-beispiel-vorher-lokal-erzeugtes-dockerfile-und-fertiges-image-erstellen">TODO Beispiel vorher lokal erzeugtes Dockerfile und fertiges image erstellen</h1>
 <pre><code class="lang-yaml">version: &apos;3&apos;,
 services:
-  geoserver:
+  my-local-dockerfile:
     build:
-      context: geoserver
+      context: relative-directory-containing-the-dockerfile/
+  local-or-remote-image:
+    image: image-name:version
 </code></pre>
-<h2 id="wichtige-konfigurations-parameter">Wichtige Konfigurations Parameter</h2>
+<h2 id="wichtige-konfigurationsparameter">Wichtige Konfigurations-Parameter</h2>
 <ul>
-<li><strong>image</strong> Image, auf Basis dessen der Container gestartet werden soll</li>
-<li><strong>ports</strong> Ports, die von au&#xDF;erhalb der Container zugreifbar sein sollen. Syntax: <code>hostMachinePort:containerPort</code>
+<li><strong>image</strong><ul>
+<li>Image, auf Basis dessen der Container gestartet werden soll</li>
+</ul>
+</li>
+<li><strong>ports</strong><ul>
+<li>Ports, die von au&#xDF;erhalb der Container zugreifbar sein sollen. Syntax: <code>hostMachinePort:containerPort</code>
 (z.B. <code>8080:80</code> stellt Port 80 des Containers auf Port 8080 der Host Maschine frei)</li>
-<li><strong>environment</strong> Umgebungsvariablen die dem Container mitgegeben werden sollen (bspw. Nutzername und Passwort)</li>
-<li><strong>volumes</strong> Pfade, die von der Host Maschine in den Container eingehangen werden sollen</li>
+</ul>
+</li>
+<li><strong>environment</strong><ul>
+<li>Umgebungsvariablen die dem Container mitgegeben werden sollen (bspw. Nutzername und Passwort)</li>
+</ul>
+</li>
+<li><strong>volumes</strong><ul>
+<li>Pfade, die von der Host Maschine in den Container eingehangen werden sollen</li>
+</ul>
+</li>
+<li><strong>context</strong><ul>
+<li>Pfad zu einer Dockerfile, welche zum Erstellen des Images genutzt werden soll</li>
+</ul>
+</li>
 </ul>
 <h2 id="wichtige-befehle">Wichtige Befehle</h2>
 <ul>
@@ -254,15 +271,27 @@ services:
 <li><strong><code>docker-compose help [command]</code></strong>, z.B. <strong><code>docker-compose help build</code></strong></li>
 </ul>
 </li>
-<li><strong><code>docker-compose build</code></strong> zur Erzeugung der Services, die in der Datei <code>docker-compose.yaml</code> definitiert sind</li>
-<li><strong><code>docker-compose up</code></strong> zum Starten der Services/Container<ul>
-<li>Mit dem Parameter <strong><code>-f</code></strong> lassen sich auch Dateien angeben, die nicht <code>docker-compose.yaml</code> hei&#xDF;en (z.B. unterschiedliche Konfiguration f&#xFC;r verschiedene
-Umgebungen)</li>
+<li><strong><code>docker-compose build</code></strong><ul>
+<li>zur Erzeugung der Services, die in der Datei <code>docker-compose.yaml</code> definitiert sind</li>
 </ul>
 </li>
-<li><strong><code>docker-compose down</code></strong> zum Stoppen der Services/Container</li>
-<li><strong><code>docker-compose logs [service&#x2026;]</code></strong> zum Einsehen der Logs eines (oder mehrerer) Services/Container</li>
-<li><strong><code>docker-compose restart [service&#x2026;]</code></strong> zum Neustarten eines (oder mehrerer) Services/Container</li>
+<li><strong><code>docker-compose up</code></strong><ul>
+<li>zum Starten der Services/Container</li>
+<li>Mit dem Parameter <strong><code>-f</code></strong> lassen sich auch Dateien angeben, die nicht <code>docker-compose.yaml</code> hei&#xDF;en (z.B. unterschiedliche Konfiguration    f&#xFC;r verschiedene Umgebungen)</li>
+</ul>
+</li>
+<li><strong><code>docker-compose down</code></strong><ul>
+<li>zum Stoppen der Services/Container</li>
+</ul>
+</li>
+<li><strong><code>docker-compose logs [service&#x2026;]</code></strong><ul>
+<li>zum Einsehen der Logs eines (oder mehrerer) Services/Container</li>
+</ul>
+</li>
+<li><strong><code>docker-compose restart [service&#x2026;]</code></strong><ul>
+<li>zum Neustarten eines (oder mehrerer) Services/Container</li>
+</ul>
+</li>
 </ul>
 
                     

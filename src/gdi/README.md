@@ -6,7 +6,7 @@ folgenden Komponenten aufbauen:
   * GeoServer zur Veröffentlichung der Geodaten über OGC-Dienste.
   * OpenLayers Applikation zur Anzeige der Geodaten über den Browser.
 
-![Zielarchitektur der GDI](../../assets/architecture.svg)
+![Zielarchitektur der GDI](../assets/architecture.png)
 
 ## Aufgaben
 

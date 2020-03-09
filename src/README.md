@@ -36,5 +36,3 @@ Praktischer Aufbau einer exemplarischen GDI mit Docker und docker-compose.
 {% for author in book.authors %}
   - {{ author.name }} ([{{ author.mail }}](mailto:{{ author.mail }}))
 {% endfor %}
-
-###### (Die Autoren sind alphabetisch nach ihrem Nachnamen sortiert.)

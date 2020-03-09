@@ -11,8 +11,7 @@
   * Mehrere Container teilen sich den Kernel und andere Ressourcen des Host-Systems
   * Leichtgewichtiger als VMs
 
-![](../../assets/container_evolution.svg)
-(https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
+![https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/](../../assets/container_evolution.svg)
 
 ## Übersicht Docker
 
@@ -61,8 +60,7 @@ Häufige Docker Befehle für die Kommandozeile:
 
 ## Architektur Docker Engine
 
-![](../../assets/docker-architecture.png)
-(https://jaxenter.de/einfuehrung-docker-tutorial-container-61528)
+![https://jaxenter.de/einfuehrung-docker-tutorial-container-61528](../../assets/docker-architecture.png)
 
 ## Aufgaben:
 

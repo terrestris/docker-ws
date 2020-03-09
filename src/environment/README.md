@@ -38,7 +38,7 @@ Define and run multi-container applications with Docker.
 (…)
 ```
 
-Schlägt einer der obigen Befehle fehl, führen Sie bitte die folgenden Befehle aus:
+Schlägt einer der obigen Befehle fehl, führen Sie bitte die folgenden Befehle (als `root`) aus:
 
 ```
 apt update

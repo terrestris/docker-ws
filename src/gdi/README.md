@@ -44,7 +44,7 @@ folgenden Komponenten aufbauen:
 * Legen Sie das `client`-Verzeichnis sowie die `default.conf` der [Materialien]({{ book.workshopMaterialsDownloadUrl }}) neben der `Dockerfile` ab.
 * Öffnen Sie die `Dockerfile` und:
   * Wählen Sie als Basisimage die aktuelle Version des offiziellen nginx [Images](https://hub.docker.com/_/nginx) aus.
-  * Kopieren Sie die Konfigurationsdatei `nginx.conf` in das Image und wählen Sie als Zielpfad `/etc/nginx/conf.d/default.conf`.
+  * Kopieren Sie die Konfigurationsdatei `default.conf` in das Image und wählen Sie als Zielpfad `/etc/nginx/conf.d/default.conf`.
   * Kopieren Sie den Inhalt des entpackten Client-Archivs `client` in das Image und wählen Sie als Zielpfad `/etc/nginx/html`.
   * Geben Sie den Port (80) des nginx-Prozesses in der `Dockerfile` an.
 * Fügen Sie der `docker-compose.yml` einen neuen Service `fossgis-nginx` hinzu.

@@ -2,8 +2,7 @@
 
 # Orchestrierung einer GDI über Docker
 
-Herzlich Willkommen beim **Orchestrierung einer GDI über Docker** Workshop auf der FOSSGIS 2020
-in Freiburg.
+Herzlich Willkommen beim **Orchestrierung einer GDI über Docker** Workshop.
 
 Dieser Workshop wurde für die Verwendung auf der [OSGeo-Live {{ book.osGeoLiveVersion }} DVD](https://live.osgeo.org) entwickelt und soll Ihnen einen ersten Einblick in docker als Orchestrierungstool einer Geodateninfrastruktur (GDI) geben.
 

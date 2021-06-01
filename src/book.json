@@ -10,7 +10,7 @@
     "workshopPdfUrl": "https://terrestris.github.io/docker-ws/docker-ws.pdf",
     "workshopEpubUrl": "https://terrestris.github.io/docker-ws/docker-ws.epub",
     "workshopMaterialsDownloadUrl": "https://terrestris.github.io/docker-ws/materials.zip",
-    "osGeoLiveVersion": "13.0",
+    "osGeoLiveVersion": "14.0",
     "authors": [{
       "name": "Jan Suleiman",
       "mail": "suleiman@terrestris.de"

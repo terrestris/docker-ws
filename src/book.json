@@ -5,7 +5,6 @@
   "language": "de",
   "variables": {
     "workshopName": "Orchestrierung einer GDI über Docker",
-    "workshopRawSourceBaseUrl": "https://rawgit.com/terrestris/docker-ws/master/src/",
     "workshopDownloadUrl": "https://terrestris.github.io/docker-ws/docker-ws.zip",
     "workshopPdfUrl": "https://terrestris.github.io/docker-ws/docker-ws.pdf",
     "workshopEpubUrl": "https://terrestris.github.io/docker-ws/docker-ws.epub",

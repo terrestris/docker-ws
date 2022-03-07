@@ -6,9 +6,9 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <NamedLayer>
-    <Name>Stadtteile</Name>
+    <Name>Countries</Name>
     <UserStyle>
-      <Title>Stadtteile</Title>
+      <Title>Countries</Title>
       <FeatureTypeStyle>
         <Rule>
           <PolygonSymbolizer>
@@ -23,7 +23,7 @@
           </PolygonSymbolizer>
         </Rule>
         <Rule>
-          <MaxScaleDenominator>250000</MaxScaleDenominator>
+          <MaxScaleDenominator>100000000</MaxScaleDenominator>
           <TextSymbolizer>
             <Label>
               <ogc:PropertyName>name</ogc:PropertyName>

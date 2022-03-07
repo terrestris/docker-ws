@@ -1,5 +1,5 @@
 {
-  "gitbook": "^2.3.2",
+  "honkit": ">= 3.0.0",
   "title": "Orchestrierung einer GDI über Docker",
   "description": "Orchestrierung einer GDI über Docker",
   "language": "de",

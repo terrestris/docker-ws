@@ -9,7 +9,7 @@ services:
       - fossgis-postgis
       - fossgis-geoserver
   fossgis-geoserver:
-    image: terrestris/geoserver:2.15.2
+    image: terrestris/geoserver:2.20.3
     ports:
       - 8080:8080
     volumes:
@@ -19,7 +19,7 @@ services:
     depends_on:
       - fossgis-postgis
   fossgis-postgis:
-    image: mdillon/postgis:11-alpine
+    image: postgis/postgis:13-3.2-alpine
     ports:
       - 5432:5432
     environment:

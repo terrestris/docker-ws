@@ -9,19 +9,10 @@
 
 * sudo apt install docker-compose
 
-# Aufgaben:
-
-
-
 # Links:
 
 * http://localhost/geoserver (admin:geoserver)
 
 # Daten
 
-* https://fritz.freiburg.de/Informationsportal/configurator?scenario=OpenData
-* https://hub.docker.com/r/terrestris/geoserver
-
-# Vorbereitungsschritte
-
-* shp2pgsql -s 31467:3857 -c -g geom -I stadtteile.shp public.stadtteile > stadtteile.sql
+* https://www.naturalearthdata.com/downloads/110m-cultural-vectors/

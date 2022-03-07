@@ -15,7 +15,7 @@
 
 ## Übersicht Docker
 
-* Docker ist Freie Software ([https://github.com/docker/docker-ce](https://github.com/docker/docker-ce))
+* Docker ist Freie Software ([https://github.com/docker](https://github.com/docker))
 * Geschrieben in Go
 * Isolierung von Software durch Containervirtualisierung
 * Einfache und schnelle Bereitstellung von Anwendungen unabhängig vom Host-System
@@ -108,7 +108,7 @@ Image ist letzlich die (geordnete) Sammlung von zahlreichen Layern.
 ###  Dockerfile
 
 ```
-FROM busybox
+FROM busybox:1.35.0
 
 RUN echo "Hello World" > /fossgis.txt
 

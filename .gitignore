@@ -24,3 +24,5 @@ dist
 postgresql_data
 geoserver_data
 additional_libs
+
+.parcel-cache

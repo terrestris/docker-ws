@@ -13,17 +13,20 @@ folgenden Komponenten aufbauen:
 ### PostGIS-Service
 
 * Legen Sie eine neue Datei namens `docker-compose.yml` in einem beliebigen Verzeichnis an.
-* Fügen Sie dieser Datei einen neuen Service `fossgis-postgis` basierend auf dem `mdillon/postgis` [Image](https://hub.docker.com/r/mdillon/postgis/) in Version `11-alpine` hinzu.
+* Fügen Sie dieser Datei einen neuen Service `fossgis-postgis` basierend auf dem `postgis/postgis` [Image](https://hub.docker.com/r/postgis/postgis/) in Version `13-3.2-alpine` hinzu.
   * Achten Sie beim Anlegen des Services auf das korrekte Weiterleiten des internen Ports (5432) auf den Host (5433) und legen Sie einen User mit den Zugangsdaten `fossgis:fossgis` an.
   * Mounten Sie das Datenverzeichnis der Datenbank (`/var/lib/postgresql/data`) auf das Hostsystem.
+  * Setzen Sie die folgenden Umgebungsvariablen:
+    * `POSTGRES_USER`: `fossgis`
+    * `POSTGRES_PASSWORD`: `fossgis`
 * Starten Sie den Service (über `docker-compose`) und verbinden Sie sich z.B. über `pgAdmin` mit dem Datenbank-Server und der Datenbank `fossgis`.
-* Importieren Sie die Stadtgebiete Freiburgs (siehe `stadtteile.sql` aus [Materialien]({{ book.workshopMaterialsDownloadUrl }})) in die Datenbank.
+* Importieren Sie die weltweiten Landesgrenzen (siehe `countries.sql` aus [Materialien]({{ book.workshopMaterialsDownloadUrl }})) in die Datenbank.
 
 ![pgAdmin nach Import der Geodaten](../assets/pgadmin.png)
 
 ### GeoServer-Service
 
-* Erweitern Sie die `docker-compose.yml` durch den Service `fossgis-geoserver` und nutzen Sie dabei das `terrestris/geoserver:2.15.2` [Image](https://hub.docker.com/r/terrestris/geoserver).
+* Erweitern Sie die `docker-compose.yml` durch den Service `fossgis-geoserver` und nutzen Sie dabei das `terrestris/geoserver:2.20.3` [Image](https://hub.docker.com/r/terrestris/geoserver).
   * Achten Sie auch hier auf das korrekte Mappen des internen Ports (8080) auf den Host (8080).
   * Mounten Sie das Datenverzeichnis des GeoServers (`/opt/geoserver_data`) auf das Hostsystem.
   * Bestimmen Sie zusätzlich die Startreihenfolge der Services mittels `depends_on`:
@@ -32,9 +35,15 @@ folgenden Komponenten aufbauen:
 * Stoppen Sie, falls noch nicht geschehen den bisherigen Service und starten Sie das compose Netzwerk neu.
 * Öffnen Sie den GeoServer über die Adresse [http://localhost:8080/geoserver](http://localhost:8080/geoserver) im Browser. Nutzen Sie als Anmeldedaten `admin:geoserver`.
 * Legen Sie einen neuen Arbeitsbereich `FOSSGIS` an.
-* Legen Sie einen neuen Datenspeicher `POSTGIS` an. Wählen Sie dabei die Verbindungsparameter des `fossgis-postgis` Services an.
-* Legen Sie anschließend einen neuen Layer `STADTTEILE` auf Basis des Datenspeichers `POSTGIS` und der Tabelle `stadtteile` an.
-* Optional: Nutzen Sie den Stil `stadtteile.sld` der [Materialien]({{ book.workshopMaterialsDownloadUrl }}) und weisen Sie diesen dem Layer zu.
+* Legen Sie einen neuen Datenspeicher `POSTGIS` an und nutzen Sie dabei die folgenden Verbindungsparameter:
+  * Host: `fossgis-postgis`
+  * Port: `5432`
+  * Database: `fossgis`
+  * Schema: `public`
+  * User: `fossgis`
+  * Password: `fossgis`
+* Legen Sie anschließend einen neuen Layer `COUNTRIES` auf Basis des Datenspeichers `POSTGIS` und der Tabelle `countries` an.
+* Optional: Nutzen Sie den Stil `countries.sld` der [Materialien]({{ book.workshopMaterialsDownloadUrl }}) und weisen Sie diesen dem Layer zu.
 
 ![Startansicht des GeoServers nach Login](../assets/geoserver-start-screen.png)
 
@@ -53,8 +62,3 @@ folgenden Komponenten aufbauen:
 * Starten Sie anschließend alle Services neu und öffnen Sie [http://localhost:8000](http://localhost:8000) im Browser.
 
 ![Startansicht des Kartenclients](../assets/ol-client.png)
-
-### Bonus
-
-* Verbinden Sie sich über das Terminal mit dem laufenden nginx-Container und ändern Sie den Wert des `<title>` Elements der `index.html` auf einen Wert Ihrer Wahl. Laden Sie anschließend die Applikation im Browser neu.
-* Was passiert, wenn der Service neu gestartet wird? Was passiert, wenn der Container neu gebaut wird?

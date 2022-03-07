@@ -1,19 +1,17 @@
 {
   "name": "docker-ws",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "The materials for the docker workshop",
   "scripts": {
     "start": "mkdir -p src/_book && npm run doc:serve",
     "test": "npm run build",
     "clean": "rm -rf src/_book build",
-    "doc:help": "gitbook help",
-    "doc:serve": "gitbook serve src",
-    "doc:build": "gitbook build src build/docker-ws",
-    "doc:epub": "gitbook epub src build/docker-ws.epub",
-    "doc:pdf": "gitbook pdf src build/docker-ws.pdf",
-    "postinstall": "gitbook install src/",
-    "build": "npm run clean && npm run doc:build && npm run doc:pdf && npm run doc:epub && cd build/docker-ws",
+    "doc:help": "honkit help",
+    "doc:serve": "honkit serve src",
+    "doc:build": "honkit build src build/docker-ws",
+    "doc:pdf": "honkit pdf src build/docker-ws.pdf",
+    "build": "npm run clean && npm run doc:build && npm run doc:pdf && cd build/docker-ws",
     "archive": "npm run build && zip -r materials.zip materials/ && mv materials.zip build/ && cd build && zip -r docker-ws.zip docker-ws docker-ws_*.pdf docker-ws_*.epub"
   },
   "repository": {
@@ -31,7 +29,13 @@
   },
   "homepage": "https://github.com/terrestris/docker-ws#readme",
   "dependencies": {
-    "gitbook-cli": "2.3.2",
-    "svgexport": "^0.3.2"
+    "gitbook-plugin-advanced-emoji": "^0.2.2",
+    "gitbook-plugin-edit-link": "^2.0.2",
+    "gitbook-plugin-expandable-chapters": "^0.2.0",
+    "gitbook-plugin-image-captions": "^3.1.0",
+    "gitbook-plugin-richquotes": "^0.0.9",
+    "gitbook-plugin-sectionx": "^3.1.0",
+    "honkit": "^3.7.1",
+    "svgexport": "0.4.2"
   }
 }

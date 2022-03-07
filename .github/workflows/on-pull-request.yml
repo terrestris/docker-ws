@@ -2,10 +2,6 @@ name: Test successful build of docker-ws
 
 on: pull_request
 
-defaults:
-  run:
-    working-directory: gitbook
-
 jobs:
   build:
     runs-on: ubuntu-18.04

@@ -12,12 +12,12 @@ const osmLayer = new TileLayer({
   source: new OSM()
 });
 
-const stadtteileLayer = new ImageLayer({
-  name: 'Stadtteile',
+const countriesLayer = new ImageLayer({
+  name: 'Countries',
   source: new ImageWMS({
     url: `${window.location.protocol}//${window.location.host}/geoserver/wms`,
     params: {
-      'LAYERS': 'FOSSGIS:STADTTEILE'
+      'LAYERS': 'FOSSGIS:COUNTRIES'
     },
     serverType: 'geoserver',
     crossOrigin: 'anonymous'
@@ -27,23 +27,12 @@ const stadtteileLayer = new ImageLayer({
 const map = new Map({
   layers: [
     osmLayer,
-    stadtteileLayer
+    countriesLayer
   ],
   target: 'map',
   view: new View({
-    center: fromLonLat([7.8377563, 47.9975796]),
-    zoom: 1,
-    resolutions: [
-      76.4370282851763,
-      38.2185141425881,
-      19.1092570712941,
-      9.55462853564703,
-      4.77731426782352,
-      2.38865713391176,
-      1.19432856695588,
-      0.597164283477939,
-      0.29858214173897
-    ]
+    center: fromLonLat([0, 0]),
+    zoom: 0
   })
 });
 
@@ -52,7 +41,7 @@ map.on('singleclick', evt => {
 
   const view = map.getView();
   const viewResolution = view.getResolution();
-  const url = stadtteileLayer.getSource().getFeatureInfoUrl(
+  const url = countriesLayer.getSource().getFeatureInfoUrl(
     evt.coordinate,
     viewResolution,
     view.getProjection(),

@@ -1,18 +1,14 @@
 {
   "name": "ol-client",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build --experimental-scope-hoisting --public-url . index.html"
+    "build": "parcel build --public-url . index.html"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "ol": "^6.1.1"
+    "ol": "6.13.0"
   },
   "devDependencies": {
-    "parcel": "^1.12.4"
+    "parcel": "^2.0.0"
   }
 }

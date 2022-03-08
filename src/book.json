@@ -5,10 +5,8 @@
   "language": "de",
   "variables": {
     "workshopName": "Orchestrierung einer GDI über Docker",
-    "workshopDownloadUrl": "https://terrestris.github.io/docker-ws/docker-ws.zip",
-    "workshopPdfUrl": "https://terrestris.github.io/docker-ws/docker-ws.pdf",
-    "workshopEpubUrl": "https://terrestris.github.io/docker-ws/docker-ws.epub",
-    "workshopMaterialsDownloadUrl": "https://terrestris.github.io/docker-ws/materials.zip",
+    "workshopPdfUrl": "https://terrestris.github.io/docker-ws/latest/docker-ws.pdf",
+    "workshopMaterialsDownloadUrl": "https://terrestris.github.io/docker-ws/latest/materials.zip",
     "osGeoLiveVersion": "14.0",
     "authors": [{
       "name": "Jan Suleiman",

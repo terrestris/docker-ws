@@ -21,8 +21,10 @@ folgenden Komponenten aufbauen:
   * Setzen Sie die folgenden Umgebungsvariablen:
     * `POSTGRES_USER`: `fossgis`
     * `POSTGRES_PASSWORD`: `fossgis`
-* Starten Sie den Service (über `docker-compose`) und verbinden Sie sich z.B. über `pgAdmin` mit dem Datenbank-Server und der Datenbank `fossgis`.
+* Starten Sie den Service (über `docker-compose`).
 * Importieren Sie die weltweiten Landesgrenzen (siehe `countries.sql` aus [Materialien](../../{{ book.workshopMaterialsName }})) in die Datenbank.
+  * Hierzu können Sie z.B. `pgAdmin` verwenden (Datenbank `fossgis`).
+  * Alternativ kann der folgende Terminal-Befehl verwendet werden: `psql -U fossgis -h localhost -p 5433 -d fossgis -f countries.sql`
 
 ![pgAdmin nach Import der Geodaten](../assets/pgadmin.png)
 
@@ -59,7 +61,7 @@ folgenden Komponenten aufbauen:
   * Kopieren Sie den Inhalt des entpackten Client-Archivs `client` in das Image und wählen Sie als Zielpfad `/etc/nginx/html`.
   * Geben Sie den Port (80) des nginx-Prozesses in der `Dockerfile` an.
 * Fügen Sie der `docker-compose.yml` einen neuen Service `fossgis-nginx` hinzu.
-  * Veröffentlichen Sie den Service-Port 80 auf dem 8000er Port des Hosts und wählen Sie als Build-Context die zuvor erstellte `Dockerfile`.
+  * Veröffentlichen Sie den Service-Port 80 auf dem Host-Port 8000 und wählen Sie als Build-Context die zuvor erstellte `Dockerfile`.
   * Achten Sie bei der Startreihenfolge darauf, dass der `nginx` Service zuletzt gestartet wird.
 * Starten Sie anschließend alle Services neu und öffnen Sie [http://localhost:8000](http://localhost:8000) im Browser.
 

@@ -38,12 +38,12 @@ Define and run multi-container applications with Docker.
 (…)
 ```
 
-Schlägt einer der obigen Befehle fehl, führen Sie bitte die folgenden Befehle (als `root`) aus:
+Schlägt einer der obigen Befehle fehl, führen Sie bitte die folgenden Befehle aus:
 
 ```
-apt update
-apt install docker.io docker-compose
-usermod -aG docker $USER
+sudo apt update
+sudo apt install docker.io docker-compose
+sudo usermod -aG docker $USER
 newgrp docker
 ```
 

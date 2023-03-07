@@ -4,7 +4,7 @@ services:
     build:
       context: fossgis-nginx/
     ports:
-      - 80:80
+      - 8000:80
     depends_on:
       - fossgis-postgis
       - fossgis-geoserver

@@ -20,7 +20,7 @@ folgenden Komponenten aufbauen:
     * `POSTGRES_USER`: `fossgis`
     * `POSTGRES_PASSWORD`: `fossgis`
 * Starten Sie den Service (über `docker-compose`) und verbinden Sie sich z.B. über `pgAdmin` mit dem Datenbank-Server und der Datenbank `fossgis`.
-* Importieren Sie die weltweiten Landesgrenzen (siehe `countries.sql` aus [Materialien]({{ book.workshopMaterialsDownloadUrl }})) in die Datenbank.
+* Importieren Sie die weltweiten Landesgrenzen (siehe `countries.sql` aus [Materialien](../../{{ book.workshopMaterialsName }})) in die Datenbank.
 
 ![pgAdmin nach Import der Geodaten](../assets/pgadmin.png)
 
@@ -43,14 +43,14 @@ folgenden Komponenten aufbauen:
   * User: `fossgis`
   * Password: `fossgis`
 * Legen Sie anschließend einen neuen Layer `COUNTRIES` auf Basis des Datenspeichers `POSTGIS` und der Tabelle `countries` an.
-* Optional: Nutzen Sie den Stil `countries.sld` der [Materialien]({{ book.workshopMaterialsDownloadUrl }}) und weisen Sie diesen dem Layer zu.
+* Optional: Nutzen Sie den Stil `countries.sld` der [Materialien](../../{{ book.workshopMaterialsName }}) und weisen Sie diesen dem Layer zu.
 
 ![Startansicht des GeoServers nach Login](../assets/geoserver-start-screen.png)
 
 ### nginx-Service (OpenLayers Anwendung)
 
 * Erstellen Sie auf Ebene der `docker-compose.yml` ein neues Verzeichnis `fossgis-nginx` und dort eine neue Datei `Dockerfile`.
-* Legen Sie das `client`-Verzeichnis sowie die `default.conf` der [Materialien]({{ book.workshopMaterialsDownloadUrl }}) neben der `Dockerfile` ab.
+* Legen Sie das `client`-Verzeichnis sowie die `default.conf` der [Materialien](../../{{ book.workshopMaterialsName }}) neben der `Dockerfile` ab.
 * Öffnen Sie die `Dockerfile` und:
   * Wählen Sie als Basisimage die aktuelle Version des offiziellen nginx [Images](https://hub.docker.com/_/nginx) aus.
   * Kopieren Sie die Konfigurationsdatei `default.conf` in das Image und wählen Sie als Zielpfad `/etc/nginx/conf.d/default.conf`.

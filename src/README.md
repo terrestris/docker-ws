@@ -6,9 +6,9 @@ Herzlich Willkommen beim **Orchestrierung einer GDI über Docker** Workshop.
 
 Dieser Workshop wurde für die Verwendung auf der [OSGeo-Live {{ book.osGeoLiveVersion }} DVD](https://live.osgeo.org) entwickelt und soll Ihnen einen ersten Einblick in docker als Orchestrierungstool einer Geodateninfrastruktur (GDI) geben.
 
-> **info**
+> ℹ️ **Information**
 >
-> Der Workshop kann [hier als PDF-Version]({{ book.workshopPdfUrl }}) heruntergeladen werden.
+> Der Workshop kann [hier als PDF-Version](../{{ book.workshopPdfName }}) heruntergeladen werden.
 
 Bitte stellen Sie sicher, dass Sie die Schritte der
 [Vorarbeiten und generelle Informationen](environment/README.md)-Seite ausgeführt

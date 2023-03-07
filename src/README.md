@@ -24,11 +24,11 @@ Grundlegende Informationen zur Workshop-Umgebung (OSGeoLive, Pfade, URLs, Creden
 * [Grundlagen Docker](basics/docker/README.md)
 Grundlagenwissen zu Docker.
 
-* [Grundlagen docker-compose](basics/docker-compose/README.md)
-Grundlagenwissen zu docker-compose.
+* [Grundlagen Docker Compose](basics/docker-compose/README.md)
+Grundlagenwissen zu Docker Compose.
 
 * [Beispiel-GDI](gdi/README.md)
-Praktischer Aufbau einer exemplarischen GDI mit Docker und docker-compose.
+Praktischer Aufbau einer exemplarischen GDI mit Docker und Docker Compose.
 
 # Autoren
 

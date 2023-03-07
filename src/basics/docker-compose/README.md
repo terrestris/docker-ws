@@ -1,14 +1,14 @@
-# docker-compose
+# Docker Compose
 
-`docker-compose` bietet die Möglichkeit, verschiedene Dienste (Container) in einer YAML-Datei zu definieren (docker-compose.yml).
+`Docker Compose` bietet die Möglichkeit, verschiedene Dienste (Container) in einer YAML-Datei zu definieren (docker-compose.yml).
 Dies bietet den Vorteil, mehrere Container auf eine übersichtliche Art und Weise konfigurieren und orchestrieren zu können.
 
-> **info**
+> ℹ️ **Information**
 >
-> Die Dokumentation zu `docker-compose` findet sich auf [https://docs.docker.com/compose/](https://docs.docker.com/compose/).
+> Die Dokumentation zu `Docker Compose` findet sich auf [https://docs.docker.com/compose/](https://docs.docker.com/compose/).
 
-`docker-compose` wird überlicherweise genutzt um Entwicklungsumgebungen aufzusetzen, automatisiertes Testen zu ermöglichen
-oder eben auch um GDIs mit geringem Aufwand zusammenzustellen. Ein großer Vorteil von `docker-compose` ist das gleichzeitige
+`Docker Compose` wird überlicherweise genutzt um Entwicklungsumgebungen aufzusetzen, automatisiertes Testen zu ermöglichen
+oder eben auch um GDIs mit geringem Aufwand zusammenzustellen. Ein großer Vorteil von `Docker Compose` ist das gleichzeitige
 starten mehrerer Container mit nur einem Befehl. Zusätzlich können wir auch Abhängigkeiten zwischen den verschiedenen Containern
 definieren. Dazu später mehr.
 

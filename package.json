@@ -1,41 +1,36 @@
 {
   "name": "docker-ws",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "description": "The materials for the docker workshop",
-  "scripts": {
-    "start": "mkdir -p src/_book && npm run doc:serve",
-    "test": "npm run build",
-    "clean": "rm -rf src/_book build",
-    "doc:help": "honkit help",
-    "doc:serve": "honkit serve src",
-    "doc:build": "honkit build src build/docker-ws",
-    "doc:pdf": "honkit pdf src build/docker-ws.pdf",
-    "build": "npm run clean && npm run doc:build && npm run doc:pdf && cd build/docker-ws",
-    "archive": "npm run build && zip -r materials.zip materials/ && mv materials.zip build/ && cd build && zip -r docker-ws.zip docker-ws docker-ws_*.pdf docker-ws_*.epub"
+  "keywords": [
+    "workshop",
+    "docker"
+  ],
+  "homepage": "https://github.com/terrestris/docker-ws#readme",
+  "bugs": {
+    "url": "https://github.com/terrestris/docker-ws/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/terrestris/docker-ws.git"
   },
-  "keywords": [
-    "workshop",
-    "docker"
-  ],
-  "author": "terrestris GmbH & Co.KG",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/terrestris/docker-ws/issues"
+  "author": "terrestris GmbH & Co.KG",
+  "scripts": {
+    "archive": "npm run build && zip -r materials.zip materials/ && mv materials.zip build/ && cd build && zip -r docker-ws.zip docker-ws docker-ws_*.pdf docker-ws_*.epub",
+    "build": "npm run clean && npm run doc:build && npm run doc:pdf && cd build/docker-ws",
+    "clean": "rm -rf src/_book build",
+    "doc:build": "honkit build src build/docker-ws",
+    "doc:pdf": "honkit pdf src build/docker-ws.pdf",
+    "doc:serve": "honkit serve src"
   },
-  "homepage": "https://github.com/terrestris/docker-ws#readme",
-  "dependencies": {
-    "gitbook-plugin-advanced-emoji": "^0.2.2",
-    "gitbook-plugin-edit-link": "^2.0.2",
-    "gitbook-plugin-expandable-chapters": "^0.2.0",
-    "gitbook-plugin-image-captions": "^3.1.0",
-    "gitbook-plugin-richquotes": "^0.0.9",
-    "gitbook-plugin-sectionx": "^3.1.0",
-    "honkit": "^3.7.1",
-    "svgexport": "0.4.2"
+  "devDependencies": {
+    "@commitlint/cli": "^17.4.4",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@semantic-release/changelog": "^6.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "honkit": "^4.0.4",
+    "semantic-release": "^20.1.1"
   }
 }

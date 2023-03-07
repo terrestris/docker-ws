@@ -7,48 +7,45 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout sources 🔰
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
-    - name: Setup Node.js 16 🧮
-      uses: actions/setup-node@v1
+    - name: Setup Node 🔧
+      uses: actions/setup-node@v3
       with:
-        node-version: 16
-
-    - name: Cache Node.js modules 💾
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.OS }}-node-
-          ${{ runner.OS }}-
-    - name: Install Calibre 🧰
-      run: sudo apt-get update && sudo apt install calibre
+        node-version: '18'
+        cache: 'npm'
 
     - name: Install dependencies ⏬
-      run: npm i
+      run: npm ci
+
+    - name: Install Calibre ⏬
+      run: sudo apt-get update && sudo apt install calibre
 
     - name: Build artifacts 🏗️
       run: npm run archive
 
-    - name: Get docker-ws version 🔖
+    - name: Release 🚀
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: ./node_modules/semantic-release/bin/semantic-release.js
+
+    - name: Get package version 🏷️
       run: |
         echo "VERSION=$(node -pe "require('./package.json').version")" >> $GITHUB_ENV
-    - name: Deploy (to docs/v${{ env.VERSION }}) 🚀
-      uses: JamesIves/github-pages-deploy-action@v4.2.5
+
+    - name: Deploy (to v${{ env.VERSION }}) 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        branch: gh-pages
         folder: build
         target-folder: v${{ env.VERSION }}
 
-    - name: Deploy (to docs/v${{ env.VERSION }}) 🚀
-      uses: JamesIves/github-pages-deploy-action@v4.2.5
+    - name: Deploy (to latest) 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        branch: gh-pages
         folder: build
         target-folder: latest

@@ -1,4 +1,4 @@
-FROM busybox:1.35.0
+FROM busybox:1.36.0
 
 RUN echo "Hello World" > /fossgis.txt
 

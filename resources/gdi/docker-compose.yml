@@ -1,15 +1,15 @@
-version: '3'
+version: '3.8'
 services:
   fossgis-nginx:
     build:
       context: fossgis-nginx/
     ports:
-      - 80:80
+      - 8000:80
     depends_on:
       - fossgis-postgis
       - fossgis-geoserver
   fossgis-geoserver:
-    image: terrestris/geoserver:2.20.3
+    image: terrestris/geoserver:2.22.2
     ports:
       - 8080:8080
     volumes:
@@ -19,11 +19,11 @@ services:
     depends_on:
       - fossgis-postgis
   fossgis-postgis:
-    image: postgis/postgis:13-3.2-alpine
+    image: postgis/postgis:15-3.3-alpine
     ports:
       - 5433:5432
     environment:
-      POSTGRES_USER: fossgis
-      POSTGRES_PASSWORD: fossgis
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ./fossgis-postgis/postgresql_data:/var/lib/postgresql/data:Z

@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/terrestris/docker-ws/compare/v1.0.0...v1.0.1) (2023-03-12)
+
+
+### Bug Fixes
+
+* corrected typo 'log' -> 'logs' ([5ab83e5](https://github.com/terrestris/docker-ws/commit/5ab83e577ec833e93f848ceea6839a8e60127f28))
+
 # 1.0.0 (2023-03-10)
 
 

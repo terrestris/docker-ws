@@ -43,7 +43,7 @@ Häufige Docker Befehle für die Kommandozeile:
   * zur Erzeugung eines Images aus einem Dockerfile
 * **`docker run`**
   * zum Starten eines Containers auf Basis eines Images
-* **`docker log`**
+* **`docker logs`**
   * zum Einsehen der Logs eines laufenden Containers
 * **`docker stop`**
   * zum Stoppen eines laufenden Containers

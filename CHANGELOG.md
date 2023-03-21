@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/terrestris/docker-ws/compare/v1.0.1...v1.0.2) (2023-03-21)
+
+
+### Bug Fixes
+
+* fix typo in command ([fbb9182](https://github.com/terrestris/docker-ws/commit/fbb918253e0e697004233037db7550255abb650c))
+
 ## [1.0.1](https://github.com/terrestris/docker-ws/compare/v1.0.0...v1.0.1) (2023-03-12)
 
 

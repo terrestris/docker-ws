@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/terrestris/docker-ws/compare/v1.0.2...v1.1.0) (2024-03-18)
+
+
+### Bug Fixes
+
+* update to latest OSGeoLive ([0b24186](https://github.com/terrestris/docker-ws/commit/0b2418659e3e7f5ab798ea39fb13fdf9089ac9ce))
+
+
+### Features
+
+* update tasks ([9cdcc7b](https://github.com/terrestris/docker-ws/commit/9cdcc7ba6678d54625e222b6d7181660a31e1dfd))
+
 ## [1.0.2](https://github.com/terrestris/docker-ws/compare/v1.0.1...v1.0.2) (2023-03-21)
 
 

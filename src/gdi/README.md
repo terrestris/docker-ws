@@ -21,7 +21,7 @@ folgenden Komponenten aufbauen:
   * Setzen Sie die folgenden Umgebungsvariablen:
     * `POSTGRES_USER`: `fossgis`
     * `POSTGRES_PASSWORD`: `fossgis`
-* Starten Sie den Service (über `docker-compose up`).
+* Starten Sie den Service (über `docker compose up`).
 * Importieren Sie die weltweiten Landesgrenzen (siehe `countries.sql` aus [Materialien](../../{{ book.workshopMaterialsName }})) in die Datenbank.
   * Hierzu können Sie z.B. `pgAdmin` verwenden (Datenbank `fossgis`).
   * Alternativ kann der folgende Terminal-Befehl verwendet werden: `psql -U fossgis -h localhost -p 5433 -d fossgis -f countries.sql`

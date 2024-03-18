@@ -42,16 +42,16 @@ services:
 
 ## Wichtige Befehle
 
-* **`docker-compose help`**
-  * **`docker-compose help [command]`**, z.B. **`docker-compose help build`**
-* **`docker-compose build`**
-  * zur Erzeugung der Services, die in der Datei `docker-compose.yaml` definitiert sind
-* **`docker-compose up`**
+* **`docker compose help`**
+  * **`docker compose help [command]`**, z.B. **`docker compose help build`**
+* **`docker compose build`**
+  * zur Erzeugung der Services, die in der Datei `docker-compose.yml` definitiert sind
+* **`docker compose up`**
   * zum Starten der Services/Container
-  * Mit dem Parameter **`-f`** lassen sich auch Dateien angeben, die nicht `docker-compose.yaml` heißen (z.B. unterschiedliche Konfiguration    für verschiedene Umgebungen)
-* **`docker-compose down`**
+  * Mit dem Parameter **`-f`** lassen sich auch Dateien angeben, die nicht `docker-compose.yml` heißen (z.B. unterschiedliche Konfiguration    für verschiedene Umgebungen)
+* **`docker compose down`**
   * zum Stoppen der Services/Container
-* **`docker-compose logs [service…]`**
+* **`docker compose logs [service…]`**
   * zum Einsehen der Logs eines (oder mehrerer) Services/Container
-* **`docker-compose restart [service…]`**
+* **`docker compose restart [service…]`**
   * zum Neustarten eines (oder mehrerer) Services/Container

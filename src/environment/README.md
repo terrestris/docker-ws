@@ -10,9 +10,9 @@ aus:
 
 ![Die Startansicht der OSGeo Live {{ book.osGeoLiveVersion }} auf Ihrem Rechner.](../assets/startview.png)
 
-## Installation docker/docker-compose
+## Installation docker/docker compose
 
-Bitte überprüfen Sie, ob `docker` und `docker-compose` korrekt installiert sind,
+Bitte überprüfen Sie, ob `docker` und `docker compose` korrekt installiert sind,
 indem Sie das Terminal öffnen und die Eingabe von
 
 ```
@@ -22,17 +22,19 @@ docker
 die folgende Ausgabe (Auszug) erzeugt:
 
 ```
-Usage:	docker [OPTIONS] COMMAND
+Usage: docker [OPTIONS] COMMAND
 
 A self-sufficient runtime for containers
 
 (…)
 ```
 
-Prüfen Sie ebenfalls, ob die Eingabe von `docker-compose` die folgende Ausgabe
+Prüfen Sie ebenfalls, ob die Eingabe von `docker compose` die folgende Ausgabe
 (Auszug) erzeugt:
 
 ```
+Usage: docker compose [OPTIONS] COMMAND
+
 Define and run multi-container applications with Docker.
 
 (…)
@@ -42,7 +44,7 @@ Schlägt einer der obigen Befehle fehl, führen Sie bitte die folgenden Befehle 
 
 ```
 sudo apt update
-sudo apt install docker.io docker-compose
+sudo apt install docker docker-compose-v2
 sudo usermod -aG docker $USER
 newgrp docker
 ```

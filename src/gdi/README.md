@@ -15,7 +15,7 @@ folgenden Komponenten aufbauen:
 ### PostGIS-Service
 
 * Legen Sie eine neue Datei namens `docker-compose.yml` in einem beliebigen Verzeichnis an.
-* Fügen Sie dieser Datei einen neuen Service `fossgis-postgis` basierend auf dem `postgis/postgis` [Image](https://hub.docker.com/r/postgis/postgis/) in Version `15-3.3-alpine` hinzu.
+* Fügen Sie dieser Datei einen neuen Service `fossgis-postgis` basierend auf dem `postgis/postgis` [Image](https://hub.docker.com/r/postgis/postgis/) in Version `16-3.4-alpine` hinzu.
   * Achten Sie beim Anlegen des Services auf das korrekte Weiterleiten des internen Ports (5432) auf den Host (5433) und legen Sie einen User mit den Zugangsdaten `fossgis:fossgis` an.
   * Mounten Sie das Datenverzeichnis der Datenbank (`/var/lib/postgresql/data`) auf das Hostsystem.
   * Setzen Sie die folgenden Umgebungsvariablen:
@@ -30,12 +30,11 @@ folgenden Komponenten aufbauen:
 
 ### GeoServer-Service
 
-* Erweitern Sie die `docker-compose.yml` durch den Service `fossgis-geoserver` und nutzen Sie dabei das `terrestris/geoserver:2.22.2` [Image](https://hub.docker.com/r/terrestris/geoserver).
+* Erweitern Sie die `docker-compose.yml` durch den Service `fossgis-geoserver` und nutzen Sie dabei das `docker.osgeo.org/geoserver:2.24.2` [Image](https://github.com/geoserver/docker).
   * Achten Sie auch hier auf das korrekte Mappen des internen Ports (8080) auf den Host (8080).
   * Mounten Sie das Datenverzeichnis des GeoServers (`/opt/geoserver_data`) auf das Hostsystem.
   * Bestimmen Sie zusätzlich die Startreihenfolge der Services mittels `depends_on`:
     1. `fossgis-postgis`
-    2. `fossgis-geoserver`
 * Stoppen Sie, falls noch nicht geschehen den bisherigen Service und starten Sie das compose Netzwerk neu.
 * Öffnen Sie den GeoServer über die Adresse [http://localhost:8080/geoserver](http://localhost:8080/geoserver) im Browser. Nutzen Sie als Anmeldedaten `admin:geoserver`.
 * Legen Sie einen neuen Arbeitsbereich `FOSSGIS` an.

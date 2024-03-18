@@ -9,17 +9,15 @@ services:
       - fossgis-postgis
       - fossgis-geoserver
   fossgis-geoserver:
-    image: terrestris/geoserver:2.22.2
+    image: docker.osgeo.org/geoserver:2.24.2
     ports:
       - 8080:8080
     volumes:
       - ./fossgis-geoserver/geoserver_data:/opt/geoserver_data/:Z
-    environment:
-      - EXTRA_JAVA_OPTS=-Xms1g -Xmx2g
     depends_on:
       - fossgis-postgis
   fossgis-postgis:
-    image: postgis/postgis:15-3.3-alpine
+    image: postgis/postgis:16-3.4-alpine
     ports:
       - 5433:5432
     environment:

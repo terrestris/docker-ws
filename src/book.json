@@ -6,8 +6,7 @@
   "variables": {
     "workshopName": "Orchestrierung einer GDI über Docker",
     "workshopPdfName": "docker-ws.pdf",
-    "workshopMaterialsName": "materials.zip",
-    "osGeoLiveVersion": "15.0",
+    "osGeoLiveVersion": "16.0",
     "authors": [{
       "name": "Jan Suleiman",
       "mail": "suleiman@terrestris.de"

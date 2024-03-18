@@ -1,5 +1,3 @@
-import 'ol/ol.css';
-
 import Map from 'ol/Map';
 import View from 'ol/View';
 import TileLayer from 'ol/layer/Tile';
@@ -8,6 +6,8 @@ import OSM from 'ol/source/OSM';
 import ImageWMS from 'ol/source/ImageWMS';
 import { fromLonLat } from 'ol/proj';
 
+import 'ol/ol.css';
+
 const osmLayer = new TileLayer({
   source: new OSM()
 });
@@ -15,7 +15,7 @@ const osmLayer = new TileLayer({
 const countriesLayer = new ImageLayer({
   name: 'Countries',
   source: new ImageWMS({
-    url: `${window.location.protocol}//${window.location.host}/geoserver/wms`,
+    url: `/geoserver/wms`,
     params: {
       'LAYERS': 'FOSSGIS:COUNTRIES'
     },

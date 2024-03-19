@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/terrestris/docker-ws/compare/v1.2.0...v1.3.0) (2024-03-19)
+
+
+### Features
+
+* update docker compose chapter, include task ([cf33b9d](https://github.com/terrestris/docker-ws/commit/cf33b9d99c3c3f3fa68986473992de59c814feff))
+
 # [1.2.0](https://github.com/terrestris/docker-ws/compare/v1.1.0...v1.2.0) (2024-03-19)
 
 

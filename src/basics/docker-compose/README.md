@@ -40,6 +40,35 @@ services:
 * **context**
   * Pfad zu einer Dockerfile, welche zum Erstellen des Images genutzt werden soll
 
+## Aufgaben
+
+Erstellen Sie eine Datei `docker-compose.yml` in einem beliebiegen Verzeichnis (z.B. `/home/user/docker-ws`) und fügen Sie folgenden Inhalt ein:
+
+```yaml
+version: '3.8'
+services:
+  fossgis-geoserver:
+    image: docker.osgeo.org/geoserver:2.24.2
+    ports:
+      - "8080:8080"
+  fossgis-postgis:
+    image: postgis/postgis:16-3.4-alpine
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: fossgis
+      POSTGRES_PASSWORD: fossgis
+```
+
+Speichern Sie das Dokument und wechseln Sie in das Terminal. Führen Sie dort den folgenden Befehl im Verzeichnis der `docker-compose.yml` aus:
+
+```bash
+docker compose up
+```
+
+Beobachten Sie den Terminal-Output, was fällt Ihnen aus? Öffnen Sie anschließend im Browser die Adresse [http://localhost:8080/geoserver](http://localhost:8080/geoserver) (Anmeldedaten `admin:geoserver`).
+
+
 ## Wichtige Befehle
 
 * **`docker compose help`**

@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/terrestris/docker-ws/compare/v1.1.0...v1.2.0) (2024-03-19)
+
+
+### Features
+
+* trigger release ([1e1b140](https://github.com/terrestris/docker-ws/commit/1e1b14092b4458d46fcf1668041d67c9aa8d0d4f))
+
 # [1.1.0](https://github.com/terrestris/docker-ws/compare/v1.0.2...v1.1.0) (2024-03-18)
 
 

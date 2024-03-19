@@ -6,7 +6,7 @@
         <title>Vorarbeiten und generelle Informationen · Orchestrierung einer GDI über Docker</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="generator" content="HonKit 5.1.4">
         
         
         
@@ -226,25 +226,27 @@ aus:</p>
 <li><em>Lubuntu ohne Installation ausprobieren</em> auswählen</li>
 <li>Benutzer: user; Passwort: user (wird vermutlich nicht benötigt)</li>
 </ul>
-<p><img src="../assets/startview.png" alt="Die Startansicht der OSGeo Live 15.0 auf Ihrem Rechner."></p>
-<h2 id="installation-dockerdocker-compose">Installation docker/docker-compose</h2>
-<p>Bitte überprüfen Sie, ob <code>docker</code> und <code>docker-compose</code> korrekt installiert sind,
+<p><img src="../assets/startview.png" alt="Die Startansicht der OSGeo Live 16.0 auf Ihrem Rechner."></p>
+<h2 id="installation-dockerdocker-compose">Installation docker/docker compose</h2>
+<p>Bitte überprüfen Sie, ob <code>docker</code> und <code>docker compose</code> korrekt installiert sind,
 indem Sie das Terminal öffnen und die Eingabe von</p>
 <pre><code>docker
 </code></pre><p>die folgende Ausgabe (Auszug) erzeugt:</p>
-<pre><code>Usage:    docker [OPTIONS] COMMAND
+<pre><code>Usage: docker [OPTIONS] COMMAND
 
 A self-sufficient runtime for containers
 
 (…)
-</code></pre><p>Prüfen Sie ebenfalls, ob die Eingabe von <code>docker-compose</code> die folgende Ausgabe
+</code></pre><p>Prüfen Sie ebenfalls, ob die Eingabe von <code>docker compose</code> die folgende Ausgabe
 (Auszug) erzeugt:</p>
-<pre><code>Define and run multi-container applications with Docker.
+<pre><code>Usage: docker compose [OPTIONS] COMMAND
+
+Define and run multi-container applications with Docker.
 
 (…)
 </code></pre><p>Schlägt einer der obigen Befehle fehl, führen Sie bitte die folgenden Befehle aus:</p>
 <pre><code>sudo apt update
-sudo apt install docker.io docker-compose
+sudo apt install docker docker-compose-v2
 sudo usermod -aG docker $USER
 newgrp docker
 </code></pre><p>Im <a href="../basics/">folgenden Abschnitt</a> werden wir mit Docker-Basiswissen fortfahren.</p>
@@ -291,7 +293,7 @@ newgrp docker
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Vorarbeiten und generelle Informationen","level":"1.2","depth":1,"next":{"title":"Basiswissen","level":"1.3","depth":1,"path":"basics/README.md","ref":"basics/README.md","articles":[{"title":"Docker","level":"1.3.1","depth":2,"path":"basics/docker/README.md","ref":"basics/docker/README.md","articles":[]},{"title":"Docker Compose","level":"1.3.2","depth":2,"path":"basics/docker-compose/README.md","ref":"basics/docker-compose/README.md","articles":[]}]},"previous":{"title":"Einführung","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","honkit":">= 3.0.0","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopName":"Orchestrierung einer GDI über Docker","workshopPdfName":"docker-ws.pdf","workshopMaterialsName":"materials.zip","osGeoLiveVersion":"15.0","authors":[{"name":"Jan Suleiman","mail":"suleiman@terrestris.de"},{"name":"Daniel Koch","mail":"koch@terrestris.de"}]},"title":"Orchestrierung einer GDI über Docker","language":"de","gitbook":"*","description":"Orchestrierung einer GDI über Docker"},"file":{"path":"environment/README.md","mtime":"2023-03-21T13:15:28.349Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-03-21T13:17:27.411Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Vorarbeiten und generelle Informationen","level":"1.2","depth":1,"next":{"title":"Basiswissen","level":"1.3","depth":1,"path":"basics/README.md","ref":"basics/README.md","articles":[{"title":"Docker","level":"1.3.1","depth":2,"path":"basics/docker/README.md","ref":"basics/docker/README.md","articles":[]},{"title":"Docker Compose","level":"1.3.2","depth":2,"path":"basics/docker-compose/README.md","ref":"basics/docker-compose/README.md","articles":[]}]},"previous":{"title":"Einführung","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","honkit":">= 3.0.0","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopName":"Orchestrierung einer GDI über Docker","workshopPdfName":"docker-ws.pdf","osGeoLiveVersion":"16.0","authors":[{"name":"Jan Suleiman","mail":"suleiman@terrestris.de"},{"name":"Daniel Koch","mail":"koch@terrestris.de"}]},"title":"Orchestrierung einer GDI über Docker","language":"de","gitbook":"*","description":"Orchestrierung einer GDI über Docker"},"file":{"path":"environment/README.md","mtime":"2024-03-19T21:54:57.564Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2024-03-19T21:56:08.975Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

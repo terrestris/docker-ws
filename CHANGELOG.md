@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/terrestris/docker-ws/compare/v1.6.1...v1.7.0) (2025-02-21)
+
+
+### Features
+
+* add GeoServer init script ([1456942](https://github.com/terrestris/docker-ws/commit/1456942a078f1368c81451a9e2efc016e2c29d67))
+
 ## [1.6.1](https://github.com/terrestris/docker-ws/compare/v1.6.0...v1.6.1) (2025-02-21)
 
 

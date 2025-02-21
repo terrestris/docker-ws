@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/terrestris/docker-ws/compare/v1.5.0...v1.6.0) (2025-02-21)
+
+
+### Features
+
+* overwork GDI workshop ([e87d70a](https://github.com/terrestris/docker-ws/commit/e87d70a4fad0c01f2ba54c7ca01e5d8af6d2c10d))
+
 # [1.5.0](https://github.com/terrestris/docker-ws/compare/v1.4.0...v1.5.0) (2025-02-21)
 
 

@@ -8,7 +8,7 @@ In diesem Abschnitt richten wir eine **PostGIS-Datenbank** über Docker Compose 
 Fügen Sie in der `docker-compose.yml` eine neue service Konfiguration hinzu.
 
 * Name: `fossgis-postgis`
-* Image: [`postgis/postgis:16-3.4-alpine`](https://hub.docker.com/r/postgis/postgis/)
+* Image: [`postgis/postgis:16-3.5-alpine`](https://hub.docker.com/r/postgis/postgis/)
 
 Folgende Punkte sollten berücksichtigt werden:
 

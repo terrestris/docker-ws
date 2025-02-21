@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/terrestris/docker-ws/compare/v1.4.0...v1.5.0) (2025-02-21)
+
+
+### Features
+
+* update versions ([7e95b95](https://github.com/terrestris/docker-ws/commit/7e95b95786e4e216d22100c17629236bd2653715))
+
 # [1.4.0](https://github.com/terrestris/docker-ws/compare/v1.3.0...v1.4.0) (2025-02-21)
 
 

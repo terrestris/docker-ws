@@ -48,11 +48,11 @@ Erstellen Sie eine Datei `docker-compose.yml` in einem beliebiegen Verzeichnis (
 version: '3.8'
 services:
   fossgis-geoserver:
-    image: docker.osgeo.org/geoserver:2.24.2
+    image: docker.osgeo.org/geoserver:2.26.2
     ports:
       - "8080:8080"
   fossgis-postgis:
-    image: postgis/postgis:16-3.4-alpine
+    image: postgis/postgis:16-3.5-alpine
     ports:
       - "5433:5432"
     environment:

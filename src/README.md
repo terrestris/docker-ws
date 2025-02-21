@@ -27,7 +27,7 @@ Grundlagenwissen zu Docker.
 * [Grundlagen Docker Compose](basics/docker-compose/README.md)
 Grundlagenwissen zu Docker Compose.
 
-* [Beispiel-GDI](gdi/README.md)
+* [Aufbau einer Geodateninfrastruktur](gdi/README.md)
 Praktischer Aufbau einer exemplarischen GDI mit Docker und Docker Compose.
 
 # Autoren

@@ -108,7 +108,7 @@ Image ist letzlich die (geordnete) Sammlung von zahlreichen Layern.
 ###  Dockerfile
 
 ```
-FROM busybox:1.36.1
+FROM busybox:1.37.0
 
 RUN echo "Hello World" > /fossgis.txt
 

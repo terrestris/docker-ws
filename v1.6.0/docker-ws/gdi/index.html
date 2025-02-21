@@ -1,0 +1,434 @@
+
+<!DOCTYPE HTML>
+<html lang="de" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Aufbau einer Geodateninfrastruktur · Orchestrierung einer GDI über Docker</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 5.1.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="preparation/" />
+    
+    
+    <link rel="prev" href="../basics/docker-compose/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Suchbegriff eingeben" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Einführung
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../environment/">
+            
+                <a href="../environment/">
+            
+                    
+                    Vorarbeiten und generelle Informationen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../basics/">
+            
+                <a href="../basics/">
+            
+                    
+                    Basiswissen
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../basics/docker/">
+            
+                <a href="../basics/docker/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../basics/docker-compose/">
+            
+                <a href="../basics/docker-compose/">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Aufbau einer Geodateninfrastruktur
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="preparation/">
+            
+                <a href="preparation/">
+            
+                    
+                    Vorbereitung
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="postgis/">
+            
+                <a href="postgis/">
+            
+                    
+                    PostGIS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="geoserver/">
+            
+                <a href="geoserver/">
+            
+                    
+                    GeoServer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="nginx/">
+            
+                <a href="nginx/">
+            
+                    
+                    OpenLayers über nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="solution/">
+            
+                <a href="solution/">
+            
+                    
+                    Musterlösung
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Veröffentlicht mit HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Aufbau einer Geodateninfrastruktur</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="aufbau-einer-geodateninfrastruktur">Aufbau einer Geodateninfrastruktur</h1>
+<p>In diesem Kapitel werden wir Schritt für Schritt eine Geodateninfrastruktur (GDI) aufbauen. Ziel ist es, eine vollständige Umgebung zur Speicherung, Bereitstellung und Visualisierung von Geodaten zu erstellen. Dabei setzen wir auf bewährte Open-Source-Technologien, die in vielen professionellen GIS-Projekten weltweit zum Einsatz kommen.</p>
+<p>Unsere GDI wird aus den folgenden Kernkomponenten bestehen:</p>
+<ul>
+<li><strong>OpenLayers</strong> – Eine moderne, JavaScript-basierte Open-Source-Bibliothek, mit der wir interaktive Karten direkt im Browser anzeigen und mit ihnen interagieren können.</li>
+<li><strong>GeoServer</strong> – Ein flexibler und weit verbreiteter Kartenserver, mit dem wir unsere Geodaten über standardisierte OGC-Dienste (z. B. WMS, WFS, WCS) bereitstellen können.</li>
+<li><strong>PostGIS</strong> – Eine leistungsstarke Erweiterung für die PostgreSQL-Datenbank, die es uns ermöglicht, Geodaten effizient zu speichern, zu verwalten und abzufragen.</li>
+</ul>
+<p>Während des Workshops werden wir die einzelnen Komponenten installieren, konfigurieren und in ein funktionierendes System integrieren. Am Ende hast du eine lauffähige GDI, mit der du eigene Geodaten verwalten und visualisieren kannst.</p>
+<h2 id="zielarchitektur">Zielarchitektur</h2>
+<p><img src="../assets/architecture.png" alt="Zielarchitektur der GDI"></p>
+<h2 id="nächste-schritte">Nächste Schritte</h2>
+<p>Im Folgenden werden wir die einzelnen Komponenten der Geodateninfrastruktur (GDI) Schritt für Schritt einrichten. Wir beginnen mit den Geodaten in der Datenbank, setzen mit dem GeoServer anschließend Geodienste darauf auf, um diese schließlich mit einer kleinen OpenLayers-Webanwendung zu visualisieren.</p>
+<ul>
+<li><a href="preparation/">Vorarbeiten</a></li>
+<li><a href="postgis/">PostGIS</a></li>
+<li><a href="geoserver/">GeoServer</a></li>
+<li><a href="nginx/">OpenLayers über nginx</a></li>
+</ul>
+<p>Folgen Sie den jeweiligen Links, um zur detaillierten Anleitung für die einzelnen Komponenten zu gelangen. 🚀</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../basics/docker-compose/" class="navigation navigation-prev " aria-label="Previous page: Docker Compose">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="preparation/" class="navigation navigation-next " aria-label="Next page: Vorbereitung">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Aufbau einer Geodateninfrastruktur","level":"1.4","depth":1,"next":{"title":"Vorbereitung","level":"1.4.1","depth":2,"path":"gdi/preparation/README.md","ref":"gdi/preparation/README.md","articles":[]},"previous":{"title":"Docker Compose","level":"1.3.2","depth":2,"path":"basics/docker-compose/README.md","ref":"basics/docker-compose/README.md","articles":[]},"articles":[{"title":"Vorbereitung","level":"1.4.1","depth":2,"path":"gdi/preparation/README.md","ref":"gdi/preparation/README.md","articles":[]},{"title":"PostGIS","level":"1.4.2","depth":2,"path":"gdi/postgis/README.md","ref":"gdi/postgis/README.md","articles":[]},{"title":"GeoServer","level":"1.4.3","depth":2,"path":"gdi/geoserver/README.md","ref":"gdi/geoserver/README.md","articles":[]},{"title":"OpenLayers über nginx","level":"1.4.4","depth":2,"path":"gdi/nginx/README.md","ref":"gdi/nginx/README.md","articles":[]},{"title":"Musterlösung","level":"1.4.5","depth":2,"path":"gdi/solution/README.md","ref":"gdi/solution/README.md","articles":[]}],"dir":"ltr"},"config":{"plugins":["copy-code-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"copy-code-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","honkit":">= 3.0.0","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopName":"Orchestrierung einer GDI über Docker","workshopPdfName":"docker-ws.pdf","osGeoLiveVersion":"16.0","authors":[{"name":"Jan Suleiman","mail":"suleiman@terrestris.de"},{"name":"Daniel Koch","mail":"koch@terrestris.de"}]},"title":"Orchestrierung einer GDI über Docker","language":"de","gitbook":"*","description":"Orchestrierung einer GDI über Docker"},"file":{"path":"gdi/README.md","mtime":"2025-02-21T15:51:39.684Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2025-02-21T15:54:06.618Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

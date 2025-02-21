@@ -3,6 +3,7 @@
   "title": "Orchestrierung einer GDI über Docker",
   "description": "Orchestrierung einer GDI über Docker",
   "language": "de",
+  "plugins": ["copy-code-button"],
   "variables": {
     "workshopName": "Orchestrierung einer GDI über Docker",
     "workshopPdfName": "docker-ws.pdf",

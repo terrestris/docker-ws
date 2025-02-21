@@ -32,5 +32,8 @@
     "@semantic-release/git": "^10.0.1",
     "honkit": "^5.1.4",
     "semantic-release": "^23.0.4"
+  },
+  "dependencies": {
+    "gitbook-plugin-copy-code-button": "^0.0.2"
   }
 }

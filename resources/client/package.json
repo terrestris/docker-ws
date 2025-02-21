@@ -6,9 +6,9 @@
     "start": "vite"
   },
   "dependencies": {
-    "ol": "^9.0.0"
+    "ol": "^10.4.0"
   },
   "devDependencies": {
-    "vite": "^5.1.6"
+    "vite": "^6.1.1"
   }
 }

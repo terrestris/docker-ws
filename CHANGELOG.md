@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/terrestris/docker-ws/compare/v1.6.0...v1.6.1) (2025-02-21)
+
+
+### Bug Fixes
+
+* optimize solution and add author ([1a2867c](https://github.com/terrestris/docker-ws/commit/1a2867c53c01619deb5589b691478243fb1f10cf))
+
 # [1.6.0](https://github.com/terrestris/docker-ws/compare/v1.5.0...v1.6.0) (2025-02-21)
 
 

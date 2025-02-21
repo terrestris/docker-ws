@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/terrestris/docker-ws/compare/v1.3.0...v1.4.0) (2025-02-21)
+
+
+### Features
+
+* add copy button to code blocks ([2303f2e](https://github.com/terrestris/docker-ws/commit/2303f2ed880c330049f9ad2fce4557b6aabb2ed8))
+
 # [1.3.0](https://github.com/terrestris/docker-ws/compare/v1.2.0...v1.3.0) (2024-03-19)
 
 

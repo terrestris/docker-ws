@@ -78,6 +78,13 @@ Nach dem erfolgreichen Start können Sie den **GeoServer** im Browser unter folg
 2️. Optional: Stil für den Layer festlegen
    - Verwenden Sie den Stil **`countries.sld`** aus der `materials.zip`.
 
+📟 **Empfehlung**
+
+Alternativ können Sie die obigen Schritte auch automatisiert über die [REST-Schnittstelle des GeoServers](https://docs.geoserver.org/stable/en/user/rest/) ausführen lassen. Hierzu können Sie den folgenden Befehl auf dem Terminal ausführen:
+
+```bash
+curl -o- https://raw.githubusercontent.com/terrestris/docker-ws/refs/heads/main/resources/setup/init-geoserver.sh | bash
+```
 
 ## 🎯 Geschafft!
 

@@ -1,3 +1,15 @@
+# [1.8.0](https://github.com/terrestris/docker-ws/compare/v1.7.0...v1.8.0) (2025-02-24)
+
+
+### Bug Fixes
+
+* set correct port for osgeo live ([1744193](https://github.com/terrestris/docker-ws/commit/1744193d509dff2e25a8347d363b2c6cfb7c00a3))
+
+
+### Features
+
+* add note about GeoServer init script ([0814b1c](https://github.com/terrestris/docker-ws/commit/0814b1c4d961ad303a9c43a331afcfa36ca456f3))
+
 # [1.7.0](https://github.com/terrestris/docker-ws/compare/v1.6.1...v1.7.0) (2025-02-21)
 
 

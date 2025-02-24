@@ -1,0 +1,455 @@
+
+<!DOCTYPE HTML>
+<html lang="de" >
+    <head>
+        <meta charset="UTF-8">
+        <title>PostGIS · Orchestrierung einer GDI über Docker</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 5.1.4">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../geoserver/" />
+    
+    
+    <link rel="prev" href="../preparation/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Suchbegriff eingeben" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Einführung
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../environment/">
+            
+                <a href="../../environment/">
+            
+                    
+                    Vorarbeiten und generelle Informationen
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../basics/">
+            
+                <a href="../../basics/">
+            
+                    
+                    Basiswissen
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../../basics/docker/">
+            
+                <a href="../../basics/docker/">
+            
+                    
+                    Docker
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../../basics/docker-compose/">
+            
+                <a href="../../basics/docker-compose/">
+            
+                    
+                    Docker Compose
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Aufbau einer Geodateninfrastruktur
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../preparation/">
+            
+                <a href="../preparation/">
+            
+                    
+                    Vorbereitung
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    PostGIS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../geoserver/">
+            
+                <a href="../geoserver/">
+            
+                    
+                    GeoServer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../nginx/">
+            
+                <a href="../nginx/">
+            
+                    
+                    OpenLayers über nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../solution/">
+            
+                <a href="../solution/">
+            
+                    
+                    Musterlösung
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            Veröffentlicht mit HonKit
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >PostGIS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="einrichten-einer-postgis-datenbank">Einrichten einer PostGIS-Datenbank</h1>
+<p>In diesem Abschnitt richten wir eine <strong>PostGIS-Datenbank</strong> über Docker Compose ein. Diese Datenbank bildet die Grundlage für unsere Geodateninfrastruktur.</p>
+<h2 id="postgis-service-hinzufügen">PostGIS-Service hinzufügen</h2>
+<p>Fügen Sie in der <code>docker-compose.yml</code> eine neue service Konfiguration hinzu.</p>
+<ul>
+<li>Name: <code>fossgis-postgis</code></li>
+<li>Image: <a href="https://hub.docker.com/r/postgis/postgis/" target="_blank"><code>postgis/postgis:16-3.5-alpine</code></a></li>
+</ul>
+<p>Folgende Punkte sollten berücksichtigt werden:</p>
+<ul>
+<li>Der interne <strong>PostgreSQL-Port 5432</strong> soll auf den <strong>Host-Port 5433</strong> weitergeleitet werden, damit wir in der Lage sind Daten zu importieren.</li>
+<li>Das Datenverzeichnis der Datenbank (<code>/var/lib/postgresql/data</code>) sollte auf das Hostsystem <strong>gemountet</strong> werden.</li>
+<li>Ein <strong>Datenbank-Benutzer</strong> mit den Zugangsdaten <code>fossgis:fossgis</code> muss angelegt werden. Dies kann über das Setzen der folgenden Umgebungsvariablen erreicht werden:</li>
+</ul>
+<pre><code class="lang-plaintext">POSTGRES_USER: fossgis
+POSTGRES_PASSWORD: fossgis
+</code></pre>
+<p>✏️ <strong>Tipp:</strong> Falls Sie unsicher sind, wie Sie das <code>docker-compose.yml</code>-File strukturieren sollen, werfen Sie einen Blick in die <a href="https://docs.docker.com/reference/compose-file/" target="_blank">Docker Compose Dokumentation</a>.</p>
+<h2 id="service-starten">Service starten</h2>
+<p>Starten Sie den PostGIS-Dienst mit folgendem Befehl:</p>
+<pre><code class="lang-bash">docker compose up
+</code></pre>
+<h2 id="geodaten-importieren">Geodaten importieren</h2>
+<p>Um die Datenbank mit Geodaten zu füllen, importieren wir die weltweiten Landesgrenzen (<code>countries.sql</code> aus der entpackten <code>materials.zip</code>).</p>
+<p>🖥️ <strong>Variante 1 – Nutzung von pgAdmin:</strong></p>
+<ul>
+<li>Öffnen Sie pgAdmin</li>
+<li>Verbinden Sie sich mit der Datenbank <code>fossgis</code></li>
+<li>Importieren Sie die Datei <code>countries.sql</code></li>
+</ul>
+<p>📟 <strong>Variante 2 – Terminal-Befehl:</strong>
+Alternativ können Sie das folgende Kommando nutzen:</p>
+<pre><code class="lang-bash">psql -U fossgis -h localhost -p 5433 -d fossgis -f countries.sql
+</code></pre>
+<h2 id="prüfung-der-daten">Prüfung der Daten</h2>
+<p>Nach dem Import sollten die Landesgrenzen in der PostGIS-Datenbank sichtbar sein. Ein Beispiel in pgAdmin:</p>
+<p><img src="../../assets/pgadmin.png" alt="pgAdmin nach Import der Geodaten"></p>
+<h3 id="🎯-geschafft">🎯 Geschafft!</h3>
+<p>Ihre <strong>PostGIS-Datenbank läuft nun in Docker</strong> und enthält die ersten Geodaten.
+Im nächsten Schritt erweitern wir unsere Geodateninfrastruktur um den <strong>GeoServer</strong>.</p>
+<p>➡️ Weiter zu <a href="../geoserver/">GeoServer</a> 🚀</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../preparation/" class="navigation navigation-prev " aria-label="Previous page: Vorbereitung">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../geoserver/" class="navigation navigation-next " aria-label="Next page: GeoServer">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PostGIS","level":"1.4.2","depth":2,"next":{"title":"GeoServer","level":"1.4.3","depth":2,"path":"gdi/geoserver/README.md","ref":"gdi/geoserver/README.md","articles":[]},"previous":{"title":"Vorbereitung","level":"1.4.1","depth":2,"path":"gdi/preparation/README.md","ref":"gdi/preparation/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["copy-code-button"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"copy-code-button":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","honkit":">= 3.0.0","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"workshopName":"Orchestrierung einer GDI über Docker","workshopPdfName":"docker-ws.pdf","osGeoLiveVersion":"16.0","authors":[{"name":"Jan Suleiman","mail":"suleiman@terrestris.de"},{"name":"Daniel Koch","mail":"koch@terrestris.de"},{"name":"Nils Bühner","mail":"buehner@terrestris.de"}]},"title":"Orchestrierung einer GDI über Docker","language":"de","gitbook":"*","description":"Orchestrierung einer GDI über Docker"},"file":{"path":"gdi/postgis/README.md","mtime":"2025-02-24T15:55:26.196Z","type":"markdown"},"gitbook":{"version":"5.1.4","time":"2025-02-24T15:56:42.246Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

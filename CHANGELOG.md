@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/terrestris/docker-ws/compare/v1.8.0...v1.8.1) (2025-02-24)
+
+
+### Bug Fixes
+
+* revert port change ([8b77753](https://github.com/terrestris/docker-ws/commit/8b77753f28e7a6fd5f39d4b76a869c18213319d2))
+
 # [1.8.0](https://github.com/terrestris/docker-ws/compare/v1.7.0...v1.8.0) (2025-02-24)
 
 
